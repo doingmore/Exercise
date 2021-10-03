@@ -1,0 +1,3 @@
+﻿  Noise Test Generator.cpp
+C:\Users\Svetozar\source\repos\Noise Test Generator\Noise Test Generator.cpp(18,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Noise Test Generator.vcxproj -> C:\Users\Svetozar\source\repos\Noise Test Generator\Debug\Noise Test Generator.exe
