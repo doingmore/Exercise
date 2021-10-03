@@ -6,7 +6,7 @@ using namespace std;
 
 /*
 Write a program that generate number and returns its square root.
-The number will be entered with “noise” in it, i.e. there will be symbols that are not digits. 
+The number will be entered with â€œnoiseâ€ in it, i.e. there will be symbols that are not digits. 
 These symbols should be ignored. The last symbol of the input random symbols will always be . (dot) 
 and there will be no other . (dot) in the number.
 */
@@ -15,8 +15,8 @@ and there will be no other . (dot) in the number.
 int getRandomSymbol()	
 {
     int symbol{ 0 };
-	srand(time(0));
-	symbol= { (rand() % 127) + 1 };
+	srand((unsigned)time(NULL));
+	symbol= { (unsigned)rand()) % 100 + 1 };
 	return symbol;
 }
 
