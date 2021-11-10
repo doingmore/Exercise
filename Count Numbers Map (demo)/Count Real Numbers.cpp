@@ -16,9 +16,7 @@ int main()
     getline(cin, numbers);
     stringstream stream(numbers);
     double n{ 0 };
-    int start{ 1 };
-
-    //std::map<double, int>::iterator it=map.begin();
+    
     while (stream >> n)
     {
         if (map.count(n))
