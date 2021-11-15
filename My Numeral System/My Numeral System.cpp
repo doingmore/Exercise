@@ -7,19 +7,19 @@
 using namespace std;
 
 /*
-Write a program that reads the digits of a base-10 numeral system – exactly 10 unique non-space characters on a single line, representing
-the symbols used for the digits 0-9 (inclusively) – then reads two numbers represented in that numeral system, then prints their sum in that numeral system.
+Write a program that reads the digits of a base-10 numeral system â€“ exactly 10 unique non-space characters on a single line, representing
+the symbols used for the digits 0-9 (inclusively) â€“ then reads two numbers represented in that numeral system, then prints their sum in that numeral system.
 */
 
-int getValue(map<char, int>& list, string findNumber)
+int getIntValue(map<char, int>& myMap, string findNumber)
 {
     char localNumber;
-    stringstream stream(findNumber);
+    stringstream localStream(findNumber);
     string returnNumber;
     int sentNumber{ 0 };
-    while (stream >> localNumber)
+    while (localStream >> localNumber)
     { 
-		for (map<char, int>::iterator it = list.begin(); it != list.end(); it++)
+		for (map<char, int>::iterator it = myMap.begin(); it != myMap.end(); it++)
 		{
             if (localNumber == it->first)
             {
@@ -40,13 +40,15 @@ int main()
     cin >> firstNumber;
     cin >> secondNumber;
 
-    int firstDigit{ 0 };
-    int secondDigit{ 0 };
-
-    stringstream stream(input);
+    int intFirst{ 0 };
+    int intSecond{ 0 };
+    string intSum; 
     char ch;
+    stringstream stream;
+    stream << input;
     int weight{ 0 };
     map<char, int> myMap;
+
     while (stream >> ch)
     {
         myMap.insert(pair<char, int>(ch, weight));
@@ -58,9 +60,25 @@ int main()
         weight++;
     }
 
-    firstDigit = getValue(myMap,firstNumber);
-    secondDigit= getValue(myMap,secondNumber);
+    intFirst = getIntValue(myMap,firstNumber);
+    intSecond= getIntValue(myMap,secondNumber);
 
-    cout << firstDigit + secondDigit << '\n';
+    stream.clear();
+    intSum= to_string(intFirst + intSecond);
+    stream << intSum;
+    int compareWithValue{ 0 };
+    while (stream >> ch)
+    {
+        compareWithValue = ch - 48;
+        for (map<char, int>::iterator it = myMap.begin(); it != myMap.end(); it++)
+        {
+            if (compareWithValue == it->second)
+            {
+                cout << it->first;
+                break;
+            }
+        }
+    }
+    
     return 0;
 }
