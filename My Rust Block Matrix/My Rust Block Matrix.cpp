@@ -5,11 +5,11 @@
 using namespace std;
 
 /*
-You are given a 10x10 matrix representing a metal square, which has begun to rust. There are 3 types of symbols in the matrix – a . (dot) means a healthy part of the metal, 
+You are given a 10x10 matrix representing a metal square, which has begun to rust. There are 3 types of symbols in the matrix â€“ a . (dot) means a healthy part of the metal, 
 a # indicates a rust-resistant part, and a ! indicates a part that has begun to rust. There may be 0, 1 or more parts that has begun to rust.
 The rust spreads from a rusty cell to healthy cells by "infecting" adjacent cells directly above, to the right, below and to the left of itself (no diagonals), at the same time.
-The rust cannot infect cells that are indicated as rust-resistant. Let’s define the time it takes for all cells adjacent to a rusty cell to get infected as 1 unit.
-After reading the matrix, read a single integer – the elapsed time in units (as defined above) – and print a matrix representing how the metal square will look after
+The rust cannot infect cells that are indicated as rust-resistant. Letâ€™s define the time it takes for all cells adjacent to a rusty cell to get infected as 1 unit.
+After reading the matrix, read a single integer â€“ the elapsed time in units (as defined above) â€“ and print a matrix representing how the metal square will look after
 the rust has been acting on it for that amount of time
 
 ..........
@@ -118,8 +118,8 @@ int main()
 		//cout << "TICK: " << ticks + 1 << endl;
 		//cout << "====================";
 
-		std::vector<int> rustX;
-		std::vector<int> rustY;
+		vector<int> rustX;
+		vector<int> rustY;
 		findMines(rustedMetal, rustX, rustY); // analyze and locate rust's coordinates
 
 		// DEBUG INFO
