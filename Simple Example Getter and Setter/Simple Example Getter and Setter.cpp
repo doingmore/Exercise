@@ -22,7 +22,7 @@ public:
 
 int main()
 {
-    Date toDay;
+    Date toDay{};
     int userDay, userMonth, userYear;
     cout << "Enter today date:";
     cin >> userDay >> userMonth >> userYear;
