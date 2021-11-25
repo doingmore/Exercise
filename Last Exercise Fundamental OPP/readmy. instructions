@@ -1,0 +1,322 @@
+09.	C++ Fundamentals - Exercises
+Write C++ code for solving the tasks on the following pages.
+Code should compile under the C++03 or the C++11 standard.
+Please follow the exact instructions on uploading the solutions for each task.
+===========================================================================
+Problem 1 – Filter students by MIN vote
+Write a program, make a Class Student. For given numbers the program should filter the students by MINIMUM VOTE, if the MINIMUM VOTE is greater or equal to the students vote, the program should give information. If the VOTE is lower than the filtered the program should NOT give information.
+Example 1
+How many students you want to input ? 
+3
+Enter name: 
+Ivan
+Enter surname: 
+Ivanov
+Enter age:
+29
+Enter vote (the vote can be with decimal point):
+5.5
+Enter name:
+Iliya
+Enter surname:
+Iliev
+Enter age:
+25
+Enter vote (the vote can be with decimal point):
+5
+Enter name:
+Dragan
+Enter surname:
+Dragomirov
+Enter age:
+29
+Enter vote (the vote can be with decimal point):
+4.5
+Which is the minimal vote that you would like to filter?
+4
+The students with MIN vote -> 4 are:
+Name -> Ivan Ivanov
+Age -> 29
+Vote -> 5.5
+Name -> Iliya Iliev
+Age -> 25
+Vote -> 5
+Name -> Dragan Dragomirov
+Age -> 29
+Vote -> 4.5
+Program ended with exit code: 0
+
+Example 2
+How many students you want to input ? 
+2
+Enter name: 
+Hristo
+Enter surname:
+Ivanov
+Enter age:
+25
+Enter vote (the vote can be with decimal point):
+5
+Enter name:
+Iliya
+Enter surname:
+Iliev
+Enter age:
+25
+Enter vote (the vote can be with decimal point): 
+2
+Which is the minimal vote that you would like to filter ? 
+6
+There are no student with MIN vote -> 6
+Program ended with exit code: 0
+Example 3
+How many students you want to input ? 
+2
+Enter name: 
+Dragan
+Enter surname: 
+Dimitrov
+Enter age: 
+25
+Enter vote (the vote can be with decimal point): 
+4
+Enter name: 
+Iliya
+Enter surname: 
+Iliev
+Enter age: 
+25
+Enter vote (the vote can be with decimal point): 
+5
+Which is the minimal vote that you would like to filter ? 
+5
+The students with MIN vote -> 5 are: 
+Name -> Iliya Iliev
+Age -> 25
+Vote -> 5
+Program ended with exit code: 0
+===========================================================================
+Problem 2 – Filter countries by Population
+Write a program, make a Class Country. For given numbers the program should filter the countries by POPULATION only if the population is EQUAL to the country population.
+Example 1
+How many countries you want to input ? 
+2
+Enter Country -> 
+Bulgaria
+Enter Capital -> 
+Sofia
+Enter Population -> 
+7
+Enter Country -> 
+Albania
+Enter Capital -> 
+Tirana
+Enter Population -> 
+7
+Which is the populations (millions) that you want to filter ? 
+7
+The countries with Population 7 millions are: 
+Country -> Bulgaria
+Capital -> Sofia
+Population (millions) -> 7
+Country -> Albania
+Capital -> Tirana
+Population (millions) -> 7
+Program ended with exit code: 0
+Example 2
+How many countries you want to input ? 
+3
+Enter Country -> 
+Bulgaria
+Enter Capital -> 
+Sofia
+Enter Population -> 
+7
+Enter Country -> 
+Italy
+Enter Capital -> 
+Rome
+Enter Population -> 
+57
+Enter Country -> 
+USA
+Enter Capital -> 
+Washington
+Enter Population -> 
+112
+Which is the populations (millions) that you want to filter ? 
+57
+The countries with Population 57 millions are: 
+Country -> Italy
+Capital -> Rome
+Population (millions) -> 57
+Program ended with exit code: 0
+Example 3
+How many countries you want to input ? 
+2
+Enter Country -> 
+Bulgaria
+Enter Capital -> 
+Sofia
+Enter Population -> 
+7
+Enter Country -> 
+Greece
+Enter Capital -> 
+Athene
+Enter Population -> 
+10
+Which is the populations (millions) that you want to filter ? 
+5
+The countries with Population 5 millions are: 
+Program ended with exit code: 0
+===========================================================================
+Problem 3 – Bank Account 
+Write a program, make a Class Bank Account. The class should have:
+User Name
+Account Num ( array of chars )
+Balance ( the balance should be floating point number )
+METHODS:
+Print – Print all Info of the account ( Name, Account Num, Balance )
+Add Balance – Add balance method ( you can not add ZERO or Negative balance )
+Withdraw Balance – Withdraw balance method ( you can not withdraw ZERO or Negative balance )
+Set Initial Balance – Set Initial balance method
+Set Account Number – Setting account number Example ( BGN12 )
+GetBalance – returning current balance 
+Write extern function that modifies the account, while the user chose to exit.
+Would you like to do ?
+Press 1 to Show All Information...
+Press 2 to Add Balance...
+Press 3 to Withdraw Balance...
+Press 0 to Exit Program...
+Example 1
+Enter Name: 
+Ivan
+Enter 5 charactes IBAN Code: 
+BGN12
+Enter Initial Balance: 
+500
+Would you like to do ?
+Press 1 to Show All Information...
+Press 2 to Add Balance...
+Press 3 to Withdraw Balance...
+Press 0 to Exit Program...
+1
+Name : Ivan
+Account number : BGN12
+Balance : 500
+Would you like to do ?
+Press 1 to Show All Information...
+Press 2 to Add Balance...
+Press 3 to Withdraw Balance...
+Press 0 to Exit Program...
+Example 2
+Enter Name: 
+Iliya
+Enter 5 charactes IBAN Code: 
+BGN12
+Enter Initial Balance: 
+3500
+Would you like to do ?
+Press 1 to Show All Information...
+Press 2 to Add Balance...
+Press 3 to Withdraw Balance...
+Press 0 to Exit Program...
+0
+Program ended with exit code: 0
+Example 3
+Enter Name: 
+Dragan
+Enter 5 charactes IBAN Code: 
+bgn25
+Enter Initial Balance: 
+500
+Would you like to do ?
+Press 1 to Show All Information...
+Press 2 to Add Balance...
+Press 3 to Withdraw Balance...
+Press 0 to Exit Program...
+2
+Enter Balance to Add: 
+500
+Added: 500
+New Balance: 1000
+Would you like to do ?
+Press 1 to Show All Information...
+Press 2 to Add Balance...
+Press 3 to Withdraw Balance...
+Press 0 to Exit Program...
+0
+Program ended with exit code: 0
+Example 3
+Enter Name: 
+Dragan
+Enter 5 charactes IBAN Code: 
+eur15
+Enter Initial Balance: 
+5000
+Would you like to do ?
+Press 1 to Show All Information...
+Press 2 to Add Balance...
+Press 3 to Withdraw Balance...
+Press 0 to Exit Program...
+3
+Enter balance to Withdraw:
+5500
+Not Enought Balance !
+Would you like to do ?
+Press 1 to Show All Information...
+Press 2 to Add Balance...
+Press 3 to Withdraw Balance...
+Press 0 to Exit Program...
+1
+Name : Dragan
+Account number : eur15
+Balance : 5000
+Would you like to do ?
+Press 1 to Show All Information...
+Press 2 to Add Balance...
+Press 3 to Withdraw Balance...
+Press 0 to Exit Program...
+0
+Program ended with exit code: 0
+===========================================================================
+Problem 4 – Rational Numbers
+Write a program, use a Class Rational Numbers. The class should have Numerator and Denominator, the variables should be INT.
+Methods in the Class:
+Setters, Getters, Print
+NOTE – The set method of the Denominator for a given 0 the function should set 1 (you can find it in EXAMPLE 3)
+Methods Extern:
+Sum, Difference, Multiplication, Division
+Example 1
+Enter first rational number numerator : 5
+Enter first rational number denominator : 2
+Enter second rational number numerator : 2
+Enter second rational number denominator : 5
+Sum  : 29/10
+Difference : 21/10
+Мultiplication : 10/10
+Division : 25/4
+Program ended with exit code: 0
+Example 2
+Enter first rational number numerator : 1
+Enter first rational number denominator : 2
+Enter second rational number numerator : 2
+Enter second rational number denominator : 5
+Sum  : 9/10
+Difference : 1/10
+Мultiplication : 2/10
+Division : 5/4
+Program ended with exit code: 0
+Example 3
+Enter first rational number numerator : 10
+Enter first rational number denominator : 0
+The denominator can't be 0, the denominator will be set to 1
+Enter second rational number numerator : 10
+Enter second rational number denominator : 0
+The denominator can't be 0, the denominator will be set to 1
+Sum  : 20/1
+Difference : 0/1
+Мultiplication : 100/1
+Division : 10/10
+Program ended with exit code: 0
