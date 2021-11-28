@@ -1,2 +1,1 @@
-# exercise
-Home Work and Exercise SUM
+# Home Work and Exercise SUM
