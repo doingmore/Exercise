@@ -1,0 +1,11 @@
+﻿  Problem1.cpp
+  Problem2.cpp
+C:\Users\Svetozar\source\repos\FUNCTIONS, ARRAYS AND VECTORS\Problem2.cpp(27,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\repos\FUNCTIONS, ARRAYS AND VECTORS\Problem2.cpp(54,30): warning C4018: '<': signed/unsigned mismatch
+  Problem3.cpp
+C:\Users\Svetozar\source\repos\FUNCTIONS, ARRAYS AND VECTORS\Problem3.cpp(29,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\repos\FUNCTIONS, ARRAYS AND VECTORS\Problem3.cpp(34,23): warning C4018: '<': signed/unsigned mismatch
+  Problem4.cpp
+  Problem5.cpp
+  Generating Code...
+  FUNCTIONS, ARRAYS AND VECTORS.vcxproj -> C:\Users\Svetozar\source\repos\FUNCTIONS, ARRAYS AND VECTORS\Debug\FUNCTIONS, ARRAYS AND VECTORS.exe
