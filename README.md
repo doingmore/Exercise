@@ -1,2 +1,2 @@
 # exercise
-Solved tasks
+Home Work and Exercise SUM
