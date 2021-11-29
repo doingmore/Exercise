@@ -1,7 +1,7 @@
 extern void Problem1();
 extern void Problem2();
-//extern void Problem3();
-//extern void Problem4();
+extern void Problem3();
+extern void Problem4();
 
 int main()
 {
