@@ -1,0 +1,11 @@
+﻿  Associative Containers.cpp
+  Problem1.cpp
+  Problem2.cpp
+  Problem3.cpp
+  Problem4.cpp
+  Problem5.cpp
+  Problem6.cpp
+C:\Users\Svetozar\source\repos\Associative Containers\Problem6.cpp(24,22): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Problem7.cpp
+  Generating Code...
+  Associative Containers.vcxproj -> C:\Users\Svetozar\source\repos\Associative Containers\Debug\Associative Containers.exe
