@@ -1,0 +1,99 @@
+07. Associative Containers and STL Algorithms 
+– Homework Exercises
+Write C++ code for solving the tasks on the following pages.
+Code should compile under the C++03 or the C++11 standard.
+Please submit a single.cpp file for each task.
+.cpp files for the tasks should be named with the task number followed by what you feel describes the exercise in a few words.
+E.g. a good name for task 2 of this homework would be:
+2.odd-occurrences.cpp
+Don’t worry about the name too much, just make sure the number and the file extension are correct.
+
+=================================================================
+
+Problem 1 - Count Real Numbers
+Read a list of real numbers and print them in ascending order along with their number of occurrences.
+Examples
+Input	Output		Input	Output		Input	Output
+8 2.5 2.5 8 2.5	2.5 -> 3
+8 -> 2		1.5 5 1.5 3	1.5 -> 2
+3 -> 1
+5 -> 1		-2 0.33 0.33 2	-2 -> 1
+0.33 -> 2
+2 -> 1
+
+=================================================================
+
+Problem 2 – Odd Occurrences
+Write a program that extracts from a given sequence of words all elements that appear in it an odd number of times (case-insensitive).
+•	Words are given in a single line, space separated.
+•	Print the result elements in lowercase, in their order of appearance.
+Examples
+Input	Output
+Java C# PHP PHP JAVA C java	java, c#, c
+3 5 5 hi pi HO Hi 5 ho 3 hi pi	5, hi
+a a A SQL xx a xx a A a XX c	a, sql, xx, c
+
+=================================================================
+
+Problem 3 – Largest 3
+Read a list of real numbers and print largest 3 of them. If less than 3 numbers exit, print all of them.
+Examples
+Input	Output		Input	Output
+10 30 15 20 50 5	50 30 20		20 30	30 20
+
+=================================================================
+
+Problem 4 – Short Words
+Read a text, extract its words (separated by spaces) find all short words (less than 5 characters) and print them alphabetically, in lowercase, separate by a single comma and a single space
+•	Use case-insensitive matching.
+•	Remove duplicated words.
+Examples
+Input	Output
+In SoftUni you can study Java C# PHP and JavaScript JAVA and c# developers graduate in 2-3 years Go in	2-3, and, c#, can, go, in, java, php, you
+
+=================================================================
+
+Problem 5 – Sort Numbers
+Read a list of decimal numbers and sort them in increasing order. Print the output as shown in the examples below.
+Examples
+Input	Output
+8 2 7 3	2 <= 3 <= 7 <= 8
+2 4 -9	-9 <= 2 <= 4
+
+=================================================================
+
+Problem 6 – Squares
+Read a list of integers and extract all square numbers from it and print them in descending order. A square number is an integer which is the square of any integer. For example, 1, 4, 9, 16 are square numbers.
+Examples
+Input	Output
+3 16 4 5 6 8 9 	16 9 4
+1 9 4 16 8 25 49 16	49 25 16 16 9 4 1
+
+=================================================================
+
+Problem 7 - Miners
+You are given a sequence of strings, each on a new line. Every odd line on the console is representing a resource (e.g. Gold, Silver, Copper, and so on), and every even – quantity. Your task is to collect the resources and print them each on a new line. 
+Print the resources and their quantities in format:
+{resource} –> {quantity}
+The quantities inputs will be in the range [1 … 2 000]
+Examples
+Input	Output		Input	Output
+Gold
+155
+Silver
+10
+Copper
+17
+stop	Gold -> 155
+Silver -> 10
+Copper -> 17		gold
+155
+silver
+10
+copper
+17
+gold
+15
+stop	gold -> 170
+silver -> 10
+copper -> 17
