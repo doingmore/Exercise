@@ -13,11 +13,9 @@ public:
 		m_id = id;
 	}
 
-	//getters
 	std::string getName() { return m_name; };
 	int getId() { return m_id; };
 };
-
 
 #define Company_h
 #endif // !Company_h
