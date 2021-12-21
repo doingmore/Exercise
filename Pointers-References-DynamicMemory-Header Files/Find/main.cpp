@@ -4,30 +4,36 @@
 #include "Company.h"
 #include "Find.h"
 
-using namespace std;
+/*
+acme 424242420
+itjoro 878968302
+softuni_foundation 20140414
+end
+878968302
+*/
 
 int main()
 {
-	vector<Company> companys;
-	string inputName;
+	std::vector<Company> companies;
+	std::string inputName;
 	int id{ 0 };
 
-	string searchMember;
+	std::string searchMember;
 
 	while (inputName != "end")
 	{
-		cin >> inputName;
+		std::cin >> inputName;
 		if (inputName =="end")
 		{
 			break;
 		}
-		cin >> id;
-		companys.push_back(Company( inputName,id));
+		std::cin >> id;
+		companies.push_back(Company( inputName,id));
 	}
 
-	cin >> searchMember; //ID on search member
+	std::cin >> searchMember; //ID on search member
 
-	cout<<findCompany(&searchMember,&companys)<<" "<<searchMember<<'\n';
+	std::cout<<findCompany(searchMember,companies)<<" "<<searchMember<<'\n';
 
     return 0;
 }
