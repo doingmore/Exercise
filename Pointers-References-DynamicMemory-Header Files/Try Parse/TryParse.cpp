@@ -3,9 +3,9 @@
 #include "TryParse.h"
 
 
-void checkParse(std::string *first, std::string *second)
+void checkParse(std::string& first, std::string& second)
 {
-	std::string checkString = *first;
+	std::string checkString = first;
 	int potentialNumber{ 0 };
 	int sum{ 0 };
 	bool flag = false;
@@ -27,7 +27,7 @@ void checkParse(std::string *first, std::string *second)
 					flag = true;
 					break;
 				}
-				std::cout << "[Error] " << checkString << " " << *second << '\n';
+				std::cout << "[Error] " << checkString << " " << second << '\n';
 				flag = true;
 				break;
 			}
@@ -43,7 +43,7 @@ void checkParse(std::string *first, std::string *second)
 		{
 		potentialNumber = stoi(checkString);
 		sum += potentialNumber;
-		checkString = *second;
+		checkString = second;
 		}
 		else
 		{
