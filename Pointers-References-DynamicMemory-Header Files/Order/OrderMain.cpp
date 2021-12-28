@@ -4,11 +4,17 @@
 #include "Company.h"
 #include "OrderedInserter.h"
 
-void getInfoAllCompanys(std::vector<OrderedInserter>* listCompanys)
+void printInfoAllCompanies(std::vector<OrderedInserter>& listCompanies)
 {
-	std::vector<OrderedInserter> passedList = *listCompanys;
+
+	for (std::vector<OrderedInserter> rangeBasedforloop :  listCompanies)
+	{
+
+	}
+
+
 	std::vector<OrderedInserter>::iterator it;
-	for (it = passedList.begin(); it != passedList.end(); it++)
+	for (it = listCompanies.begin(); it != listCompanies.end(); it++)
 	{
 		std::cout << it->getName() << " " << it->getID() << '\n';
 	}
