@@ -5,8 +5,6 @@
 
 #include "OrderedInserter.h"
 
-void getInfoAllCompanys(std::vector<OrderedInserter>* listCompanys);
-
+void getInfoAllCompanys(std::vector<OrderedInserter>& listCompanys);
 
 #endif // !Company_h
-
