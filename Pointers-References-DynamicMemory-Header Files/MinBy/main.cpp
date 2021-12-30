@@ -6,22 +6,36 @@
 #include "MinBy.h"
 #include "ClassCharacteristic.h"
 
-using namespace std;
-
-/*
+/* input
 hear the rime of the ancient mariner see his eyes as he stops one of
 */
 
 int main()
 {
-    string inputString;
-    getline(cin, inputString);
-    stringstream stream(inputString);
-    string answer;
+    std::string inputString;
+    int choice{ 0 };
+    std::getline(std::cin, inputString);
+    std::cin >> choice;
+    std::stringstream stream(inputString);
+    std::string answer;
 
-    answer = checkWordCharacteristic(&stream);
+    switch (choice)
+    {
+    case 1: // finds the string that is earliest lexicographically
+        answer = checkForFirstCriteria(stream);
+        break;
+    case 2: // finds the shortest string
+        answer = checkForSecondCriteria(stream);
+        break;
+    case 3: // finds the longest string
+        answer = checkForThirdCriteria(stream);
+        break;
+    default:
+        std::cout << "Tour choice is incorrect" << '\n';
+        break;
+    }
 
-    cout<< answer <<'\n'; //check words characteristic and create a member with three of characteristics
+    std::cout<< answer <<'\n'; //check words characteristic and create a member with three of characteristics
 
     return 0;
 }
