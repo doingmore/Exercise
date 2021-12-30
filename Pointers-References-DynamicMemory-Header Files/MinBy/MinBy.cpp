@@ -4,37 +4,62 @@
 #include "MinBy.h"
 #include "ClassCharacteristic.h"
 
-
-std::string checkWordCharacteristic(std::stringstream *stream)
-{
+std::string checkForFirstCriteria(std::stringstream& stream) // finds the string that is earliest lexicographically
+{ 
 	std::string localAnswer;
 	std::string checkWord;
-	std::string maxlength="a";   // Given the task, I understand that this is the criterion of the highest priority
 	std::string earliestLex="z"; // last letter 
-	std::string minLength="Pneumonoultramicroscopicsilicovolcanoconiosis+1";  //longest word in English lenguage + 1
-	while ( (*stream) >> checkWord )
+	while (stream >> checkWord)
 	{
-		if (checkWord.size() >= maxlength.size())
+		if (checkWord < earliestLex)
 		{
-			if (checkWord < earliestLex)
-			{
-			maxlength = checkWord;
-			earliestLex=checkWord;
-			}
+			earliestLex = checkWord;
 		}
-		if (checkWord.size() < minLength.size()) // for minimum length word
+	}
+	localAnswer=earliestLex;
+	return (localAnswer);
+}
+
+std::string checkForSecondCriteria(std::stringstream& stream) // finds the shortest string
+{ 
+
+	std::string localAnswer;
+	std::string checkWord;
+	std::string minLength = "Pneumonoultramicroscopicsilicovolcanoconiosis+1";  //longest word in English lenguage + 1
+	while (stream >> checkWord)
+	{
+		if (checkWord.size() < minLength.size())
 		{
 			minLength = checkWord;
 		}
 	}
 
-	ClassCharacteristic member= ClassCharacteristic(maxlength, earliestLex, minLength);
-	ClassCharacteristic *ptr = &member; // Pointer to this member
+	ClassCharacteristic member = ClassCharacteristic(minLength);
+	ClassCharacteristic* ptr = &member; // Pointer to this member
 
-	localAnswer= ptr->getLong() ;
-	
+	localAnswer = ptr->getSpecs();
+
 	return (localAnswer);
 }
 
+std::string checkForThirdCriteria(std::stringstream& stream)  //finds the longest string
+{ 
+	std::string localAnswer;
+	std::string checkWord;
+	std::string maxlength = "a";   
+	
+	while (stream >> checkWord)
+	{
+		if (checkWord.size() > maxlength.size())
+		{
+			maxlength = checkWord;
+		}
+	}
 
+	ClassCharacteristic member = ClassCharacteristic(maxlength);
+	ClassCharacteristic* ptr = &member; // Pointer to this member
 
+	localAnswer = ptr->getSpecs();
+
+	return (localAnswer);
+}
