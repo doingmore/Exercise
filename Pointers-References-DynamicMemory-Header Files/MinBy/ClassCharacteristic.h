@@ -6,23 +6,15 @@
 class ClassCharacteristic
 {
 private:
-	std::string m_earliestLexicographically;
-	std::string m_shortestWord;
-	std::string m_longestWord;
+	std::string m_specs;
 public:
-	ClassCharacteristic(std::string longestWord, std::string lexicographically, std::string shortestWord)
+	ClassCharacteristic(std::string specs)
 	{
-		m_longestWord = longestWord;
-		m_earliestLexicographically = lexicographically;
-		m_shortestWord = shortestWord;
+		m_specs = specs;
 	}
 
-	//getters
-	std::string getLex() { return  m_earliestLexicographically; };
-	std::string getShort() { return  m_shortestWord; };
-	std::string getLong() { return  m_longestWord; };
+	std::string getSpecs() { return  m_specs; };
 };
-
 
 #endif // !ClassCaracteristic
 
