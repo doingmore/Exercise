@@ -2,7 +2,10 @@
 #define MinBy_h
 #include <string>
 
-std::string checkWordCharacteristic(std::stringstream* stream);
+std::string checkForFirstCriteria(std::stringstream& stream);
+
+std::string checkForSecondCriteria(std::stringstream& stream);
+
+std::string checkForThirdCriteria(std::stringstream& stream);
 
 #endif // !MinBy_h
-
