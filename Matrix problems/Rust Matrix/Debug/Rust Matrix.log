@@ -1,0 +1,4 @@
+﻿  Rust Matrix.cpp
+C:\Users\Svetozar\source\repos\Rust Matrix\Rust Matrix.cpp(24,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\repos\Rust Matrix\Rust Matrix.cpp(29,30): warning C4018: '<': signed/unsigned mismatch
+  Rust Matrix.vcxproj -> C:\Users\Svetozar\source\repos\Rust Matrix\Debug\Rust Matrix.exe
