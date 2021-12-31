@@ -1,0 +1,4 @@
+﻿  Longest Sequence.cpp
+C:\Users\Svetozar\source\repos\Longest Sequence\Longest Sequence.cpp(27,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\repos\Longest Sequence\Longest Sequence.cpp(54,30): warning C4018: '<': signed/unsigned mismatch
+  Longest Sequence.vcxproj -> C:\Users\Svetozar\source\repos\Longest Sequence\Debug\Longest Sequence.exe
