@@ -1,6 +1,8 @@
 #include <iostream>
 // #include <vector>
 
+
+// This example is not from problems
 // Store the elements dynamic and print them
 /*
 3
