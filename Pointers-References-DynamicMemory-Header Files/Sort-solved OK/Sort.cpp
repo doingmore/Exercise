@@ -37,7 +37,7 @@ vector<Company> populateCompaniesFromInput()
         istringstream istr(input);
         istr >> companyName >> companyID;
         id = stoi(companyID);
-        companies.push_back(Company(id,companyName));
+        companies.push_back(Company(id,companyName));  //  OR  // companies.emplace_back(id,companyName);
     }
     return companies;
 }
