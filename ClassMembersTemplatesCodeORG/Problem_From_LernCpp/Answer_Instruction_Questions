@@ -1,0 +1,25 @@
+C)
+We still have
+
+Fraction operator*(const Fraction& f1, const Fraction& f2)
+When we multiply a fraction with an integer, for example
+
+Fraction f5{ 2 * f2 };
+The Fraction(int, int) constructor will be used to construct a new Fraction from 2. This new Fraction is then multiplied by f2 using the Fraction * Fraction operator.
+
+The additional conversion from 2 to a Fraction slows down the program, making it slower than the implementation with overloaded operators for integer multiplication.
+
+D)
+We’re multiplying temporary Fraction objects, but non-const references cannot bind to temporaries.
+
+e) Extra credit: the fraction 2/4 is the same as 1/2, but 2/4 is not reduced to the lowest terms. We can reduce any given fraction to lowest terms by finding the greatest common divisor (GCD) between the numerator and denominator, and then dividing both the numerator and denominator by the GCD.
+
+std::gcd was added to the standard library in C++17 (in the <numeric> header).
+
+If you’re on an older compiler, you can use this function to find the GCD:
+
+#include <cmath>
+
+int gcd(int a, int b) {
+    return (b == 0) ? std::abs(a) : gcd(b, a % b);
+}
