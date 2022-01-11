@@ -5,10 +5,7 @@
 #include <algorithm>
 #include <utility>
 
-
 #include "Company.h"
-
-using namespace std;
 
 /*
 acme 424242420
@@ -18,37 +15,37 @@ end
 id
 */
 
-vector<Company> populateCompaniesFromInput()
+std::vector<Company> populateCompaniesFromInput()
 {
-    vector<Company> companies;
-    string input = " begin ";
-    string companyID{ 0 };
-    string companyName;
+    std::vector<Company> companies;
+    std::string input = " begin ";
+    std::string companyID{ 0 };
+    std::string companyName;
     int id{ 0 };
 
     while (input != "end")
     {
-        getline(cin, input);
-        if (input =="end")
+        std::getline(std::cin, input);
+        if (input == "end")
         {
             return companies;
             break;
         }
-        istringstream istr(input);
+        std::istringstream istr(input);
         istr >> companyName >> companyID;
         id = stoi(companyID);
-        companies.push_back(Company(id,companyName));  //  OR  // companies.emplace_back(id,companyName);
+        companies.emplace_back(id, companyName);  //  OR  // companies.push_back(Company(id,companyName)) nut here is with copy;
     }
     return companies;
 }
 
 
-bool sortByID(Company &left,Company &right)
+bool sortByID  (const Company &left,const Company &right)
 {
-    return (left.getID() < right.getID());
+    return (left.getId() < right.getId());
 }
 
-bool sortByName(Company &left, Company &right)
+bool sortByName(Company& left, Company& right)
 {
     return (left.getName() < left.getName());
 }
@@ -56,10 +53,10 @@ bool sortByName(Company &left, Company &right)
 
 int main()
 {
-    vector<Company> companies = populateCompaniesFromInput();
+    std::vector<Company> companies = populateCompaniesFromInput();
 
-    string choice;
-    getline(cin, choice);
+    std::string choice;
+    std::getline(std::cin, choice);
 
     if (choice == "id")
     {
@@ -70,9 +67,9 @@ int main()
         std::sort(companies.begin(), companies.end(), sortByName);
     }
 
-    for (Company &company : companies)
+    for (Company& company : companies) // Range base for loop 
     {
-        cout << company.toString() << '\n';
+        std::cout << company.toString() << '\n';
     }
 
     return 0;
