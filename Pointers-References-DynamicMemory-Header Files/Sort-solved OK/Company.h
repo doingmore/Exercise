@@ -1,36 +1,37 @@
-#ifndef Company_H
-#define Company_H
-//This file is skeleton 
-
+#ifndef COMPANY_H
+#define COMPANY_H
 
 #include <string>
 #include <sstream>
 #include <vector>
 #include <utility>
 
-class Company
-{
+class Company {
 private:
-	int m_id;
-	std::string m_name;
+	int id;
+	std::string name;
+
 public:
 	Company() {}
 
 	Company(int id, std::string name)
-	{
-		m_id = id;
-		m_name = name;
-	}
-	
-	std::string toString()
-	{
+		: id(id)
+		, name(name) {}
+
+	std::string toString() {
 		std::ostringstream stream;
-		stream << m_name << " " << m_id;
+		stream << name << " " << id;
+
 		return stream.str();
 	}
 
-	std::string getName() { return m_name; }
-	int getID() { return m_id; }
+	std::string getName() const {
+		return this->name;
+	}
 
+	int getId() const {
+		return this->id;
+	}
 };
-#endif // !Company_H
+
+#endif // !COMPANY_H
