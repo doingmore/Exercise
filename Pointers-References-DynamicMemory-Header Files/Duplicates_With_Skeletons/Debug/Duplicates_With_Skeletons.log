@@ -1,0 +1,4 @@
+﻿  Duplicates_With_Skeletons.cpp
+C:\Users\Svetozar\source\REPOS\Duplicates_With_Skeletons\Company.h(40,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\REPOS\Duplicates_With_Skeletons\Company.h(43,9): warning C4018: '<': signed/unsigned mismatch
+  Duplicates_With_Skeletons.vcxproj -> C:\Users\Svetozar\source\REPOS\Duplicates_With_Skeletons\Debug\Duplicates_With_Skeletons.exe
