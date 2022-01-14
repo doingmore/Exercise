@@ -2,36 +2,36 @@
 #include <string>
 
 class Person {
-	int age;
+	int m_age;
 public:
-	const std::string name;
+	const std::string m_name;
 
 	// correct constructor: 
-	// Person(std::string name, int age) : name(name), age(age) {}
-	Person(std::string name, int age) : name(name) {
-		//this->name = name;
-		this->age = age;
+	// Person(std::string name, int age) : m_name(name), m_age(age) {}
+	Person(std::string name, int age) {
+		this->m_name = name;
+		this->m_age = age;
 	}
 
 	// correct getter, so that the printOlderPerson function below compiles:
 	//int getAge() const {
-	//	return this->age;
+	//	return this->m_age;
 	//}
 	int getAge() const {
-		return this->age;
+		return this->m_age;
 	}
 };
 
 void printOlderPerson(const Person& a, const Person& b) {
 	if (a.getAge() >= b.getAge()) {
-		std::cout << a.name << std::endl;
+		std::cout << a.m_name << std::endl;
 	}
 	else {
-		std::cout << b.name << std::endl;
+		std::cout << b.m_name << std::endl;
 	}
 }
 
-int main_pitfallConst() {
+int main() {
 	Person a{ "joro", 26 };
 	Person b{ "ben dover", 46 };
 
