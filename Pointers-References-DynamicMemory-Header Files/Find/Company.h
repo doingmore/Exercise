@@ -1,4 +1,5 @@
-#ifndef Company_h
+#ifndef Company_H
+#define Company_H
 #include <string>
 
 class Company
@@ -16,6 +17,4 @@ public:
 	std::string getName() { return m_name; };
 	int getId() { return m_id; };
 };
-
-#define Company_h
-#endif // !Company_h
+#endif // !Company_H
