@@ -1,4 +1,5 @@
-#ifndef Company_h
+#ifndef Company_H
+#define Company_H
 #include <string>
 
 class Company
@@ -24,7 +25,4 @@ public:
 	int getCosts() { return m_costs; };
 
 };
-
-
-#define Company_h
-#endif // !Company_h
+#endif // !Company_H
