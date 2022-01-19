@@ -34,7 +34,7 @@ std::vector<std::string> Article13Filter::getBlocked()
 	return std::vector<std::string>(this->m_blocked);
 }
 
-/*
+/* This is input : 
 eussr censorship machines
 notblocked
 eussr
