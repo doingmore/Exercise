@@ -1,0 +1,29 @@
+﻿  Parser_WS.cpp
+C:\Users\Svetozar\source\REPOS\Parser_WS\Parser.h(21,8): error C2672: 'getline': no matching overloaded function found
+C:\Users\Svetozar\source\REPOS\Parser_WS\Parser.h(20): message : while compiling class template member function 'bool Parser<Song>::readNext(T &)'
+          with
+          [
+              T=Song
+          ]
+C:\Users\Svetozar\source\REPOS\Parser_WS\Parser_WS.cpp(66): message : see reference to function template instantiation 'bool Parser<Song>::readNext(T &)' being compiled
+          with
+          [
+              T=Song
+          ]
+C:\Users\Svetozar\source\REPOS\Parser_WS\Parser_WS.cpp(63): message : see reference to class template instantiation 'Parser<Song>' being compiled
+C:\Users\Svetozar\source\REPOS\Parser_WS\Parser.h(21,1): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &' from 'T'
+          with
+          [
+              T=Song
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\string(82): message : see declaration of 'std::getline'
+C:\Users\Svetozar\source\REPOS\Parser_WS\Parser.h(21,1): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 2 provided
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\string(76): message : see declaration of 'std::getline'
+C:\Users\Svetozar\source\REPOS\Parser_WS\Parser.h(21,1): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &' from 'T'
+          with
+          [
+              T=Song
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\string(70): message : see declaration of 'std::getline'
+C:\Users\Svetozar\source\REPOS\Parser_WS\Parser.h(21,1): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 2 provided
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\string(27): message : see declaration of 'std::getline'
