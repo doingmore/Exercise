@@ -7,38 +7,34 @@
 #include <sstream>
 #include <algorithm>
 
-
-
 template<typename T>
-std::vector<T> split(std::string &line, char &separator)
+std::vector<T> split(std::string& line, char& separator)
 {
 	std::vector<T> answer;
-	line.erase(std::remove(line.begin(), line.end(), separator), line.end()); // remove separator
-	std::istringstream stream(line);
+	std::stringstream stream; // stream for cast
+	std::string fragment;
 	T element;
-	while (stream >> element)
-	{
-		answer.push_back(element);
-	}
-	
-	return answer;
-}
-
-#endif
-	/*
-	std::vector<T> answer;
-	for (size_t i = 0; i < line.size(); i++)
+	for (unsigned int i = 0; i < line.size(); i++)
 	{
 		if (line[i] != separator)
 		{
-			answer.push_back(line[i]);
+			fragment += line[i];
+		}
+		else
+		{
+			stream << fragment;
+			stream >> element;
+			answer.push_back(element);
+			stream.clear();
+			fragment.clear();
 		}
 	}
-
-;
-caught-somewhere-in-time 446;superpalav 246
-w
->
-
-
-	*/
+	// if does not meet a new separator
+	stream << fragment;
+	stream >> element;
+	answer.push_back(element);
+	stream.clear();
+	fragment.clear();
+	return answer;
+}
+#endif
