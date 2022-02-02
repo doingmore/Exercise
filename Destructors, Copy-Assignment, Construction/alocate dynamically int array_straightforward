@@ -19,10 +19,12 @@ public:
 		delete[] m_array;
 	}
 
-	//discuss this what do, in 13.14 ->> Converting constructors explicit and delete
+	//discuss this what do, in 13.14 ->> Converting constructors explicit and delete (LernCPP)
+	// NOTE: this syntax disables copy-constructing and copy-assigning objects of the class
+	// - it is intentional, because otherwise this class will have issues with memory when such copies are done
 	IntArray(const IntArray&) = delete;
 	IntArray& operator= (IntArray&) = delete;
-	//discuss this what do, in 13.14 ->> Converting constructors explicit and delete
+	
 
 	int getLength() const { return this->m_length; }
 
