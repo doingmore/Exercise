@@ -1,11 +1,5 @@
 #include <iostream>
-#include <queue>
-#include <list>
-#include <vector>
 #include <cassert>
-
-//#include "myClass.h"
-
 
 class IntArray
 {
