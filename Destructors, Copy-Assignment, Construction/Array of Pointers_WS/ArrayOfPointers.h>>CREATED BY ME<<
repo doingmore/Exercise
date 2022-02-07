@@ -1,6 +1,7 @@
 #ifndef ArrayOfPointers_H
 #define ArrayOfPointers_H
 #include <vector>
+#include "Company.h"
 
 class ArrayOfPointers
 {
@@ -9,17 +10,11 @@ private:
 public:
 	ArrayOfPointers() {};
 
-	void add(Company* &c)
-	{
-		this->arrayOfPtr.emplace_back(c);
-	}
+	void add(Company*& c);
+	
+	size_t getSize();
 
-	size_t getSize() { return arrayOfPtr.size(); }
-
-	Company* get (size_t &index)
-	{
-		return this->arrayOfPtr[index];
-	}
+	Company* get(size_t& index);
 };
 
 #endif // !ArrayOfPointers_H
