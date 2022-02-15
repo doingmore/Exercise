@@ -8,6 +8,22 @@ c) Next up is the Monster class. Monster also inherits from Creature. Monsters h
 First, write an empty Monster class inheriting from Creature, and then add an enum inside the Monster class named Type
 that contains enumerators for the 3 monsters that we’ll have in this game: DRAGON, ORC, and SLIME 
 (you’ll also want a max_types enumerator, as that will come in handy in a bit).
+
+d) Each Monster type will have a different name, symbol, starting health, gold, and damage. Here is a table of stats for each monster Type:
+
+Type	Name	Symbol	Health	Damage	Gold
+dragon	dragon	D	20	4	100
+orc	orc	o	4	2	25
+slime	slime	s	1	1	10
+
+Next step is to write a Monster constructor, so we can create monsters. The Monster constructor should take a Type enum as a parameter, 
+and then create a Monster with the appropriate stats for that kind of monster. There are a number of different ways to implement this
+(some better, some worse). However in this case, because all of our monster attributes are predefined (not random), we’ll use a lookup table. 
+A lookup table is an array that holds all of the predefined attributes. We can use the lookup table to look up the attributes for a given monster as needed.
+So how do we implement this lookup table? It’s not hard. We just need an array that contains an element for each monster Type. Each array element 
+will contain a Creature that contains all of the predefined attribute values for that Type of Monster. We place this array inside of a static member 
+function of Monster so that we can get a default Creature for a given Monster::Type. Now we can call this function to lookup any values we need!
+For example, to get a Dragon’s gold, we can call getDefaultCreature(Type::dragon).getGold().
 */
 
 class Creature
