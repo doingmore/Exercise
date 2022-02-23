@@ -24,12 +24,12 @@ public:
 	std::vector<T> readToEnd()
 	{
 		T element;
-		std::vector<T> all;
+		std::vector<T> output;
 		while (this->operator>>(element).stream.good())
 		{
 			all.push_back(element);
 		}
-		return all;
+		return output;
 	}
 };
 #endif // !TypedStream_H
