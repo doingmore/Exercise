@@ -1,0 +1,5 @@
+﻿  Memory.cpp
+C:\Users\Svetozar\source\REPOS\Memory\Company.h(26,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\REPOS\Memory\Company.h(29,9): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\REPOS\Memory\Memory.cpp(31,20): warning C4018: '<': signed/unsigned mismatch
+  Memory.vcxproj -> C:\Users\Svetozar\source\REPOS\Memory\Debug\Memory.exe
