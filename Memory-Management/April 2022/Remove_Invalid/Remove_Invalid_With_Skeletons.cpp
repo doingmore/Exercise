@@ -7,14 +7,6 @@
 #include "Company.h"
 #include "RemoveInvalid.h"
 
-/*
-123 valid
--123 invalid
-321 ancientmarinerinc
-end
-*/
-
-
 std::vector<std::string> readStringsLine() {
 	std::vector<std::string> values;
 
