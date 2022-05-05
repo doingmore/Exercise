@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\Svetozar\source\REPOS\Make Company.01\Company.h(25,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\REPOS\Make Company.01\Company.h(28,10): warning C4018: '<': signed/unsigned mismatch
+  Make Company.01.vcxproj -> C:\Users\Svetozar\source\REPOS\Make Company.01\Debug\Make Company.01.exe
