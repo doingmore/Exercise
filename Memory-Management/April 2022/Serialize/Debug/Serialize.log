@@ -1,0 +1,4 @@
+﻿  Serialize.cpp
+C:\Users\Svetozar\source\REPOS\Serialize\Company.h(46,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\REPOS\Serialize\Company.h(49,9): warning C4018: '<': signed/unsigned mismatch
+  Serialize.vcxproj -> C:\Users\Svetozar\source\REPOS\Serialize\Debug\Serialize.exe
