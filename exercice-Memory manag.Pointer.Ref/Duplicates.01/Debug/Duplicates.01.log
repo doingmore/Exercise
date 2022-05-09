@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\Svetozar\source\REPOS\Duplicates.01\Company.h(40,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\REPOS\Duplicates.01\Company.h(43,9): warning C4018: '<': signed/unsigned mismatch
+  Duplicates.01.vcxproj -> C:\Users\Svetozar\source\REPOS\Duplicates.01\Debug\Duplicates.01.exe
