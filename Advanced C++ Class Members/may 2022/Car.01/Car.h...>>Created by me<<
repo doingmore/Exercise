@@ -1,8 +1,6 @@
 #ifndef CAR_H
 #define CAR_H
 
-using namespace std;
-
 class Car
 {
 private:
@@ -19,7 +17,5 @@ public:
 	int getYear() const { return m_year; }
 
 };
-
-
 
 #endif // !CAR_H
