@@ -1,0 +1,9 @@
+#include "Echo.h"
+
+
+
+
+void echo(const std::string& str)
+{
+	std::cout << str << '\n';
+}
