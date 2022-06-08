@@ -15,6 +15,10 @@ Vector2D readVector() {
 	return Vector2D(x, y);
 }
 
+/*
+c 1 3 2
+*/
+
 int main() {
 	char shapeType;
 	std::cin >> shapeType;
