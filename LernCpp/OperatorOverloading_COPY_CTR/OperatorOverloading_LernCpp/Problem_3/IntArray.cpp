@@ -1,0 +1,61 @@
+#include <iostream>
+#include <sstream>
+#include <cassert>
+
+#include "IntArray.h"
+
+std::ostream& operator<< (std::ostream& stream, const IntArray& left)
+{
+	for (int i = 0; i < left.m_length; i++)
+	{
+		stream << left[i] << " ";
+	}
+	return stream;
+}
+
+IntArray::IntArray(const int& length) : m_length{ length }
+{
+	assert(length > 0);
+	m_data = new int[length] {};
+}
+
+int& IntArray::operator[] (const int& index) const
+{
+	return m_data[index];
+}
+
+IntArray::~IntArray()
+{
+	delete[] m_data;
+	m_data = NULL;
+}
+
+IntArray::IntArray(const IntArray& other) : m_length{other.m_length}
+{
+	m_data = new int[m_length] {}; // this->m_data
+
+	for (int i = 0; i < m_length; i++)
+	{
+		m_data[i] = other.m_data[i];
+	}
+}
+
+IntArray& IntArray::operator= (const IntArray& other)
+{
+	if (this == &other) // self guard
+	{
+		return *this;
+	}
+
+	delete[] m_data;
+
+	m_length = other.m_length;
+
+	m_data = new int[m_length] {};
+
+	for (int i = 0; i < m_length; i++)
+	{
+		m_data[i] = other.m_data[i];
+	}
+	return *this;
+}
