@@ -1,0 +1,9 @@
+#include "Car.h"
+
+
+
+Car::Car(const std::string& brand, const std::string& model, const int& year) :
+	m_brand{ brand },
+	m_model{ model },
+	m_year{ year }
+{}
