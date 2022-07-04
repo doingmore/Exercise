@@ -1,0 +1,7 @@
+﻿  Serialize.02.cpp
+C:\Users\Svetozar\source\REPOS\Serialize.02\Serialize.02\Company.h(46,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\REPOS\Serialize.02\Serialize.02\Company.h(49,9): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\REPOS\Serialize.02\Serialize.02\Serialize.h(18,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\REPOS\Serialize.02\Serialize.02\Serialize.h(49,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Svetozar\source\REPOS\Serialize.02\Serialize.02\Serialize.h(85,23): warning C4018: '<': signed/unsigned mismatch
+  Serialize.02.vcxproj -> C:\Users\Svetozar\source\REPOS\Serialize.02\Debug\Serialize.02.exe
