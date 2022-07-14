@@ -1,5 +1,0 @@
-﻿  CustomVector.cpp
-C:\Users\Mr.Robot\source\repos\CustomVector\CustomVector\vector.h(106,1): error C2512: 'Person': no appropriate default constructor available
-C:\Users\Mr.Robot\source\repos\CustomVector\CustomVector\vector.h(84): message : while compiling class template member function 'Vector<Person> &Vector<Person>::operator =(const Vector<Person> &)'
-C:\Users\Mr.Robot\source\repos\CustomVector\CustomVector\CustomVector.cpp(68): message : see reference to function template instantiation 'Vector<Person> &Vector<Person>::operator =(const Vector<Person> &)' being compiled
-C:\Users\Mr.Robot\source\repos\CustomVector\CustomVector\CustomVector.cpp(20): message : see reference to class template instantiation 'Vector<Person>' being compiled
