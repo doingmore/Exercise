@@ -1,2 +1,7 @@
 ﻿  CustomVector.cpp
+C:\Users\Mr.Robot\source\repos\CustomVector\CustomVector\vector.h(157,1): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\Mr.Robot\source\repos\CustomVector\CustomVector\vector.h(154): message : while compiling class template member function 'void Vector<int>::reserve(const size_t &)'
+C:\Users\Mr.Robot\source\repos\CustomVector\CustomVector\CustomVector.cpp(194): message : see reference to function template instantiation 'void Vector<int>::reserve(const size_t &)' being compiled
+C:\Users\Mr.Robot\source\repos\CustomVector\CustomVector\CustomVector.cpp(13): message : see reference to class template instantiation 'Vector<int>' being compiled
+C:\Users\Mr.Robot\source\repos\CustomVector\CustomVector\vector.h(175,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   CustomVector.vcxproj -> C:\Users\Mr.Robot\source\repos\CustomVector\x64\Debug\CustomVector.exe

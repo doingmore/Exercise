@@ -6,40 +6,25 @@
 #include "vector.h"
 #include "Person.h"
 
-
 #define TestType Person
 
-
-Vector<TestType> otherScope()
+void doReport(Vector<TestType>& vec)
 {
-    Vector<TestType> answer;
-
-    
-    Person first{"Mr.Robot",3};      // test for user defined type
-    Person second{ "NONAME",8 };     // test for user defined type
-    Person third{ "EXAMPLE",30 };    // test for user defined type
-
-    answer.push_back(first);
-    answer.push_back(second);
-    answer.push_back(third);
-    
-
-    /*
-    answer.push_back(5);            // test for int and char also
-    answer.push_back(8);              // test for int and char also
-    answer.push_back(10);           // test for int and char also
-    */
-
-    /*answer.push_back("test");       // test for std::string
-    answer.push_back("EGT");          // test for std::string
-    answer.push_back("GABLING");*/    // test for std::string
-
-    for (size_t i = 0; i < answer.size(); i++)
+    for (size_t i = 0; i < vec.size(); i++)
     {
-        std::cout << answer[i] << " ";
+        std::cout << vec[i] << " ";
     }
     std::cout << '\n';
-    return answer;
+    std::cout << "size: " << vec.size() << " capacity: " << vec.capacity() << '\n';
+}
+void doReport( std::vector<int>& vec )
+{
+    for (size_t i = 0; i < vec.size(); i++)
+    {
+        std::cout << vec[i] << " ";
+    }
+    std::cout << '\n';
+    std::cout << "size: " << vec.size() << " capacity: " << vec.capacity() << '\n';
 }
 
 
@@ -47,60 +32,175 @@ Vector<TestType> otherScope()
 
 int main()
 {
-    // test memory leak
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
+    // ========================= standart std::vector ======================================
+    
+    //   test automatic increase capacity
+    /* 
+    std::vector<int> vec;
+    for (int i = 0; i < 5; i++)
+    {
+        vec.push_back(5 + i);
+        doReport(vec);
+    }
+    for (int i = 0; i < 20; i++)
+    {
+        vec.push_back(5 + i);
+        doReport(vec);
+    }
+    for (int i = 0; i < 50; i++)
+    {
+        vec.push_back(5 + i);
+        doReport(vec);
+    }
+    */ 
+    //   test increase capacity after resize functions   ( same action! )
     /*
-    // test copy CTR
-    Vector<TestType> vec = otherScope();
-    for (size_t i = 0; i < vec.size(); i++)
+    std::vector<int> vec;
+    vec.resize(4);
+    for (int i = 0; i < 5; i++)
     {
-        std::cout << vec[i] <<" ";
+        vec.push_back(5 + i);
+        doReport(vec);
     }
-    std::cout << '\n';
-
-    // test assignment operator
-    Vector<TestType> copy;
-    copy = vec;
-    for (size_t i = 0; i < copy.size(); i++)
+    for (int i = 0; i < 20; i++)
     {
-        std::cout << copy[i] << " ";
+        vec.push_back(5 + i);
+        doReport(vec);
     }
-    std::cout << '\n';
+    for (int i = 0; i < 50; i++)
+    {
+        vec.push_back(5 + i);
+        doReport(vec);
+    }
     */
+
+    //   test pop_back                                    ( reduce only elements not capacity )
+    /*
+    std::vector<int> vec;
+    for (int i = 0; i < 5; i++)
+    {
+        vec.push_back(i);
+    }
+    doReport(vec);
+
+    vec.pop_back();
+
+    doReport(vec);
+    */
+
+    // ========================= custom vector ======================================
+
+    // Test operator=  
+    /*
+    Vector<TestType> vec1;
+    for (int i = 0; i < 4; i++)
+    {
+        vec1.push_back(Person{"Mr.Robot",i+5});
+    }
+    std::cout << "before assignment vec 1: "<<'\n';
+    doReport(vec1);
+    Vector<TestType> vec2;
+    vec2 = vec1;
+    std::cout << "after assignment vec 2: "<<'\n';
+    doReport(vec1);
+    */
+
+    // Test copy CTR   
+    /*
+    Vector<TestType> vec1;
+    for (int i = 0; i < 4; i++)
+    {
+        vec1.push_back(5 + i);
+    }
+    std::cout << "before copyCTR vec 1: "<<'\n';
+    doReport(vec1);
+    Vector<TestType> vec2=vec1;
+    std::cout << "after copyCTR vec 2: " << '\n';
+    doReport(vec1);
+    */
+
+    // Test automatic increase capacity LINEAR
+    /*
     Vector<TestType> vec;
-    Person first{ "Mr.Robot",3 };      // test for user defined type
-    Person second{ "NONAME",8 };     // test for user defined type
-    Person third{ "EXAMPLE",30 };    // test for user defined type
-
-
-
-    std::vector<TestType> s_vec;
-    s_vec.push_back(first);
-    s_vec.resize(2);
-    for (size_t i = 0; i < s_vec.size(); i++)
+    for (int i = 0; i < 6; i++)
     {
-        std::cout << s_vec[i] << " ";
+        vec.push_back(1 + i);
+        doReport(vec);
     }
-
-    s_vec.push_back(second);
-    s_vec.push_back(third);
-    std::cout << s_vec.size() << " " << s_vec.capacity() << '\n';
-
-
-    vec.push_back(first);
-    vec.push_back(second);
-    vec.push_back(third);
-
-    std::cout << vec.size() << " " << vec.capacity();
-
-    for (size_t i = 0; i < vec.size(); i++)
+    for (int i = 6; i < 26; i++)
     {
-        std::cout << vec[i] << " ";
+        vec.push_back(1 + i);
+        doReport(vec);
     }
-    std::cout << '\n';
-
+    for (int i = 26; i < 80; i++)
+    {
+        vec.push_back(5 + i);
+        doReport(vec);
+    }
+    */
+    
+    // Test automatic increase capacity after function resize and mix
+    /*
+    Vector<TestType> vec;
+    vec.resize(3);                    // start with resize
+    for (int i = 0; i < 6; i++)
+    {
+        vec.push_back(1 + i);
+        doReport(vec);
+    }
     vec.erase();
+
+    for (int i = 0; i < 6; i++)
+    {
+        vec.push_back(1 + i);         // start with push_back
+        doReport(vec);
+    }
+
+    vec.resize(2);                    // all elements after second will be deallocated
+    doReport(vec);
+
+    for (int i = 6; i < 26; i++)
+    {
+        vec.push_back(1 + i);
+        doReport(vec);
+    }
+    */
+
+    // Test pop_back  
+    /*
+    Vector<TestType> vec;
+    for (int i = 0; i < 5; i++)
+    {
+        vec.push_back(i);
+    }
+    doReport(vec);
+
+    vec.pop_back();
+
+    doReport(vec);
+    */
+    
+    // Test reserve
+    /*
+    Vector<TestType> vec;
+    for (int i = 0; i < 5; i++)
+    {
+        vec.push_back(i);
+    }
+    doReport(vec);
+    size_t a{ 4 };
+    vec.reserve(a);  
+
+    doReport(vec);
+    */
     
 
+
+
+
+
+    system("PAUSE");
     return 0;
 }
