@@ -52,7 +52,7 @@ std::string translateNumber(const int& number)
 		"five",
 		"six",
 		"seven",
-		"eight",       //   18 --  without 't' 
+		"eight",      
 		"nine"
 	};
 
