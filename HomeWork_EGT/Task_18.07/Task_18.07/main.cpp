@@ -91,7 +91,6 @@ std::string translateNumber(const int& number)
 		answer += tenth[firstDigit];
 		if (secondDigit != 0 )
 		{
-			answer += "-";
 			answer += units[secondDigit];
 		}
 	}
