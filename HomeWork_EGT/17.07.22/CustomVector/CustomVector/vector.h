@@ -77,26 +77,20 @@ public:
 	// =================================================== Iterators  ==================================================
 	
 	struct iterator {
-
-		using iterator_category = std::forward_iterator_tag;
-		using difference_type = std::ptrdiff_t;
-		using value_type = T;
 		using pointer = T*;  // or also value_type*
 		using reference = T&;  // or also value_type&
-		iterator(pointer ptr) : m_ptr(ptr) {}
+		iterator(pointer ptr)  // pass return address from begin() or end()
+			: m_ptr(ptr)
+		{}
 
-		reference operator*() const { return *m_ptr; }
-		pointer operator->() { return m_ptr; }
+		reference   operator*  () const { return *m_ptr; }
+		pointer     operator-> () { return m_ptr; }
 
-		// Prefix increment 
-		iterator& operator++() { m_ptr++; return *this; }
-
-		// Postfix increment
-		iterator operator++(int) { iterator tmp = *this; ++(*this); return tmp; }
+		iterator& operator++   ()    { m_ptr++; return *this; }
+		iterator  operator++   (int) { iterator temp = *this; ++(*this); return temp; } // this++
 
 		friend bool operator== (const iterator& a, const iterator& b) { return a.m_ptr == b.m_ptr; };
 		friend bool operator!= (const iterator& a, const iterator& b) { return a.m_ptr != b.m_ptr; };
-
 	private:
 		pointer m_ptr;
 	};
@@ -112,6 +106,7 @@ public:
 		iterator answer{ parameter };
 		return answer;
 	}
+
 
 	 
 	// =================================================== Capacity ==================================================
@@ -133,20 +128,6 @@ private:
 
 };
 
-
-template<typename T>
-void Vector<T>::pop_back()                        // can will be more performance  
-{
-	T* oldArray = m_list;
-
-	m_list = new T[m_capacity];
-
-	for (int i = 0; i < m_size - 1; i++)
-	{
-		m_list[i] = oldArray[i];
-	}
-	delete[] oldArray;
-}
 
 template<typename T>
 void Vector<T>::push_back(const T& element)
@@ -177,8 +158,23 @@ void Vector<T>::push_back(const T& element)
 	m_size++;
 }
 
+
 template<typename T>
-void   Vector<T>::reserve(const size_t& newCapacity)  
+void Vector<T>::pop_back()                        // can will be more performance  
+{
+	T* oldArray = m_list;
+
+	m_list = new T[m_capacity];
+
+	for (int i = 0; i < m_size - 1; i++)
+	{
+		m_list[i] = oldArray[i];
+	}
+	delete[] oldArray;
+}
+
+template<typename T>
+void   Vector<T>::reserve(const size_t& newCapacity)
 {
 	// Requests that the vector capacity be at least enough to contain n elements.
 	// This function has no effect on the vector size and cannot alter its elements.
@@ -201,9 +197,7 @@ void   Vector<T>::reserve(const size_t& newCapacity)
 
 		m_capacity = newCapacity;
 	}
-	
 	// else do nothing
-	
 }
 
 template<typename T>
@@ -261,7 +255,6 @@ void Vector<T>::erase()
 
 	m_list = NULL;
 }
-
 
 
 
