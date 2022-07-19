@@ -15,7 +15,7 @@
 да се напише програма която да проверява
 дали дадено число е степен на двойката
 
-4. numberOfDigits.
+4. getNumberOfAllDigits.
 да се напише програма която да намира броя на цифрите на дадено число
 примерно ако се виведе 51324 искам да ми изкара 5.
 
@@ -106,7 +106,7 @@ int getFactorial(const std::string& input)
 	{
 		std::cout << " Incorrect input at function get Factorial " << '\n';
 		// do something
-		return answer;  
+		return answer;   
 	}
 
 
@@ -148,26 +148,38 @@ bool powerOfTwo(const int& number) // return true if the number is power of two
 	return false;
 }
 
-int getNumberOfDigits(const int& number)
+int getNumberOfAllDigits(const int& number)
 {
-	std::string str_numbers = std::to_string(number);
-	return static_cast<int>(str_numbers.size());
+	int result{ 0 };
+	
+	int a{ number };
+	int divisor{ 1 };
+	while (( a / divisor) >= 1 )
+	{
+		result++;
+		divisor *= 10;
+	}
+	return result;
 }
 
-bool sumOfAllDigits(const int& number) // return true if  the sum is equal to 3
+bool sumOfDigitsEqualTo3(const int& number) // return true if  the sum is equal to 3
 {
-	std::string str_numbers = std::to_string(number);
 	int sum{ 0 };
-	for (size_t i = 0; i < str_numbers.size(); i++)
+
+	int a{ number };
+	int temp{ 0 };
+	while (a > 0)
 	{
-		int in{ (int) str_numbers[i] };      
-		sum += in;
+		temp = (a % 10);
+		a /= 10;
+		sum += temp;
+
+		if (sum > 3)       // it is not necessary more calculations
+		{
+			return false;
+		}
 	}
-	if (sum == 3)
-	{
-		return true;
-	}
-	return false;
+	return sum == 3;
 }
 
 int main()
@@ -214,14 +226,14 @@ int main()
 	/*
 	int input;
 	std::cin >> input;
-	std::cout << getNumberOfDigits(input) << '\n';
+	std::cout << getNumberOfAllDigits(input) << '\n';
 	*/
 
 	// Problem 5.      // ask about signed/unsigned  using
-	/*
+	
 	int input;
 	std::cin >> input;
-	if (sumOfAllDigits(input))
+	if (sumOfDigitsEqualTo3(input))
 	{
 		std::cout << "The input number have a sum of digits = 3." << '\n';
 	}
@@ -229,9 +241,9 @@ int main()
 	{
 		std::cout << "False => The input number no have a sum of digits = 3." << '\n';
 	}
-	*/
+	
 
-	std::cout << 36 % 10 << '\n';
+	
 
  	return 0;
 }
