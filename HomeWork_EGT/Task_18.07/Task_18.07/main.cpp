@@ -105,7 +105,8 @@ int getFactorial(const std::string& input)
 	if (input[0] != '!')
 	{
 		std::cout << " Incorrect input at function get Factorial " << '\n';
-		return answer;   // practical question when we have a wrong input in a function can we return a default value and continue the program ?
+		// do something
+		return answer;  
 	}
 
 
