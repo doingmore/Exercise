@@ -1,6 +1,7 @@
 #include <iostream>
+#include <string>
 
-#define bitsSize 8
+#define bitsSize 16
 
 void translateNumber(int* bits, int number)
 {
@@ -13,14 +14,18 @@ void translateNumber(int* bits, int number)
     }
 }
 
-bool checkForPowerOfTwo(int* bits)
+bool checkForPowerOfTwo(int* number, int* previousNumber)
 {
-    int a{ 0 };
-    for (int i = 0; i < bitsSize; i++)
+    bool flag{ true };
+    for (int i = bitsSize-1 ; i >= 0; i--)
     {
-        a += bits[i];
+        if ( number[i] & previousNumber[i] )
+        {
+            flag = false;
+            break;
+        }
     }
-    return a == 1;
+    return flag;
 }
 
 void printBinaryNumber(int* bits)
@@ -33,19 +38,24 @@ void printBinaryNumber(int* bits)
 
 int main()
 {
-    int n{ 0 };
-    std::cin >> n;
-
-    int bitsNumber[bitsSize]{};
-
-    translateNumber(bitsNumber, n);
-
-    if (checkForPowerOfTwo(bitsNumber))
+    for (int i = 1; i < 50000; i++)
     {
-        printBinaryNumber(bitsNumber);
-        std::cout << " -> is power of two " << '\n';
-    }
+        int n{ i }; // The number we are checking
+        int nMinusOne{ n - 1 };
 
+        int nNumber[bitsSize]{};            // binary
+        int previousNumber[bitsSize]{};     // binary
+
+        translateNumber(nNumber, n);
+        translateNumber(previousNumber, nMinusOne);
+
+        if (checkForPowerOfTwo(nNumber , previousNumber) ) 
+        {
+            std::cout << "binary: ";
+            printBinaryNumber(nNumber);
+            std::cout <<" -> "<< i << " -> is power of two " << '\n';
+        }
+    }
 
     return 0;
 }
