@@ -13,7 +13,6 @@ int main()
     {
         bitNumber[i] = n % 2;
         n /= 2;
-
         i--;
     }
     // printing bits array
