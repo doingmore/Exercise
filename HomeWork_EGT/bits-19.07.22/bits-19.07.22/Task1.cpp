@@ -1,34 +1,51 @@
 #include <iostream>
 
-bool checkForPowerOfTwo(const int& number)
-{
-    double a = (double)number;   // is it good choice C cast in production  ?? static_cast<>() ?? 
+#define bitsSize 8
 
-    while (true)
+void translateNumber(int* bits, int number)
+{
+    int it{ bitsSize - 1 };
+    while (number > 0)
     {
-        if (a == 2)
-        {
-            return true;
-        }
-        else if (a < 2)
-        {
-            break;
-        }
-        a /= 2;
+        bits[it] = number % 2;
+        it--;
+        number /= 2;
     }
-    return false;
 }
 
+bool checkForPowerOfTwo(int* bits)
+{
+    int a{ 0 };
+    for (int i = 0; i < bitsSize; i++)
+    {
+        a += bits[i];
+    }
+    return a == 1;
+}
+
+void printBinaryNumber(int* bits)
+{
+    for (int i = 0; i < bitsSize; i++)
+    {
+        std::cout << bits[i];
+    }
+}
 
 int main()
 {
-    // All numbers numbers until 50 000; 
-    for (int i = 0; i < 50000; i++)
+    int n{ 0 };
+    std::cin >> n;
+
+    int bitsNumber[bitsSize]{};
+
+    translateNumber(bitsNumber, n);
+
+    if (checkForPowerOfTwo(bitsNumber))
     {
-        if (checkForPowerOfTwo(i))
-        {
-            std::cout << i << " -> is power of two " << '\n';
-        }
+        printBinaryNumber(bitsNumber);
+        std::cout << " -> is power of two " << '\n';
     }
+
+
     return 0;
 }
