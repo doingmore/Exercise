@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -52,9 +52,10 @@ std::string translateNumber(const int& number)
 		"five",
 		"six",
 		"seven",
-		"eight",      
+		"eight",       
 		"nine"
 	};
+	
 
 	int firstDigit{ number / 10 };
 	int secondDigit{ number % 10 };
@@ -99,19 +100,25 @@ std::string translateNumber(const int& number)
 
 int getFactorial(const std::string& input)  
 {
-	// for this example without protections for negative number
-
 	int answer{ 0 };
+
+	if (input[0] != '!')
+	{
+		std::cout << " Incorrect input at function get Factorial " << '\n';
+		return answer;   // practical question when we have a wrong input in a function can we return a default value and continue the program ?
+	}
+
+
 	std::string number;
 	for (size_t i = 1; i < input.size(); i++)  // remove first element "!"
 	{
 		number+= input[i];
 	}
-	int intNumber{ std::stoi(number) };        
-	answer = intNumber;
-	intNumber--;
+	int intNumber{ std::stoi(number) };     
 
-	for (int i = intNumber; i > 1; i-- )
+	answer = intNumber;
+
+	for (int i = intNumber-1 ; i > 1; i-- )
 	{
 		answer *= i;
 	}
@@ -152,7 +159,7 @@ bool sumOfAllDigits(const int& number) // return true if  the sum is equal to 3
 	int sum{ 0 };
 	for (size_t i = 0; i < str_numbers.size(); i++)
 	{
-		int in{ str_numbers[i] - 48 };
+		int in{ (int) str_numbers[i] };      
 		sum += in;
 	}
 	if (sum == 3)
@@ -222,6 +229,8 @@ int main()
 		std::cout << "False => The input number no have a sum of digits = 3." << '\n';
 	}
 	*/
+
+	std::cout << 36 % 10 << '\n';
 
  	return 0;
 }
