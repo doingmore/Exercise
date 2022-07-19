@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+
+#define bitsSize 16
+
+bool checkForPowerOfTwo(int checkNumber)
+{
+    if ( checkNumber & int{ checkNumber - 1} )
+    {
+        return false;
+    }
+    return true;
+}
+
+void printInBinary( int number)
+{
+    int bits[bitsSize]{};
+
+    int it{ bitsSize - 1 };
+    while (number > 0)
+    {
+        bits[it] = number % 2;
+        it--;
+        number /= 2;
+    }
+    for (int i = 0; i < bitsSize; i++)
+    {
+        std::cout << bits[i];
+    }
+}
+
+int main()
+{
+    for (int i = 1; i < 50000; i++)
+    {
+        if (checkForPowerOfTwo(i))
+        {
+            std::cout << "binary: ";
+            printInBinary(i);
+            std::cout << " -> " << i << " -> is power of two " << '\n';
+        }
+    }
+    return 0;
+}
