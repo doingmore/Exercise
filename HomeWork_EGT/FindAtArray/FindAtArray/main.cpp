@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main()
-{   //                     |      |    
+{   //                   |      |    
     int data[]{ -2,5,8,6,4,-9,5,3,7,-3 };
     int targetSum{ 7 };
     // I put number equal to searching sum, but we need for two number, not only one .... we don't have a zero
