@@ -1,0 +1,6 @@
+
+
+
+X * 2 = 1 bit shift left
+X / 2 = 1 bit shift right
+X * 3 = shift left 1 bit and then add X
