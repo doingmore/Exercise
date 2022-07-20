@@ -2,21 +2,19 @@
 
 #define bitsSize 8
 
-void printBinaryNumber(int number)
+void printInBinary(int number)
 {
-    int bitsNumber[bitsSize]{};
-
-    int it{ bitsSize - 1 };
-    while (number > 0)
+    for (int i = bitsSize-1; i >= 0; i--)
     {
-        bitsNumber[it] = number % 2;
-        it--;
-        number /= 2;
-    }
-
-    for (int i = 0; i < bitsSize; i++)
-    {
-        std::cout << bitsNumber[i];
+        int x{ number & (1 << i) };
+        if (x == 0)
+        {
+            std::cout<<"0";
+        }
+        else
+        {
+            std::cout << "1";
+        }
     }
 }
 
