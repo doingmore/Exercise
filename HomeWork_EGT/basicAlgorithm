@@ -1,0 +1,112 @@
+#include <iostream>
+
+void swap( int& left, int& right)
+{
+    int temp{ left };
+    left = right;
+    right = temp;
+}
+
+
+
+
+/*  For Binary Search Iterative Method
+    Best case complexity: O(1)
+    Average case complexity: O(log n)
+    Worst case complexity: O(log n)
+*/
+int binarySearch(int* data, int element, int begin, int end)
+{
+    // Repeat until the pointers low and high meet each other
+    while (begin <= end) 
+    {
+        int mid = begin + (end - begin) / 2;
+
+        if (data[mid] == element)
+        { 
+            return mid;
+        }
+        else if (data[mid] > element)
+        {
+            end = mid - 1;
+        }
+        else
+        {
+            begin = mid + 1;
+        }
+    }
+
+    return 0; // first element if don't have, this element at data
+}
+
+
+
+void manualSort(int* data, const int& size)   // runtime  Θ(N).
+{
+    for (int step = 0; step < size; ++step)
+    {
+        for (int i = step+1; i < size ; ++i)
+        {
+            if (data[step] > data[i])
+            {
+                swap(data[step], data[i]);
+            }
+        }
+    }
+}
+
+
+void bobleSort(int* data,const int& size)    
+{
+    for (int step = 0; step < (size - 1); ++step)
+    {
+        bool swappedFlag=true;
+        for (int i = 0; i < (size - step - 1); ++i) 
+        {
+            if (data[i] > data[i + 1]) 
+            {
+                swap(data[i], data[i + 1]);
+                swappedFlag = false;
+            }
+        }
+        if (swappedFlag)
+        {
+            break;
+        }
+    }
+}
+
+void print(int* data, const int& size)   // runtime  Θ(N).
+{
+    for (int i = 0; i < size; ++i)
+    {
+        std::cout << data[i] << " ";
+    }
+    std::cout << '\n';
+}
+
+
+
+int main()
+{   
+	int data[]{ 30, 10, 20, 40, 50 };
+	constexpr int length{ static_cast<int>(std::size(data)) };
+    
+    
+    
+    bobleSort(data, length );
+
+    int findElement{ 40 };
+    std::cout << binarySearch(data, findElement, 0 , length-1); // return position
+    
+    
+
+    print(data, length);
+
+    manualSort(data, length);
+
+
+
+	std::cout << '\n';
+    return 0;
+}
