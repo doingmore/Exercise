@@ -56,6 +56,20 @@ LinkedList::~LinkedList()
 	this->erase();
 }
 
+int& LinkedList::find(const int& element)
+{
+	Node* it = head;
+	while (it != NULL)
+	{
+		if (it->getValue() == element)
+		{
+			return it->getRef();
+		}
+		it = it->getNext();
+	}
+	return tail->getRef();
+}
+
 void LinkedList::insert_after_element(const int& elementAfter, const int& newValue)
 {
 	bool flagAdded = true;
