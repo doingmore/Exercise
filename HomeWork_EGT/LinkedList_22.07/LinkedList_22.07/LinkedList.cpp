@@ -58,6 +58,7 @@ LinkedList::~LinkedList()
 
 void LinkedList::insert_after_element(const int& elementAfter, const int& newValue)
 {
+	bool flagAdded = true;
 	Node* it = head;
 	while (it != NULL)
 	{
@@ -66,9 +67,14 @@ void LinkedList::insert_after_element(const int& elementAfter, const int& newVal
 			Node* newElement = new Node{ newValue };
 			newElement->setNext(it->getNext());
 			it->setNext(newElement);
+			flagAdded = false;
 			break;
 		}
 		it = it->getNext();
+	}
+	if (flagAdded) // In case when we have a default container add element at head. Or wrong "elementAfter" just add element at tail.
+	{
+		add(newValue);
 	}
 }
 
@@ -125,6 +131,13 @@ void LinkedList::add(const int& value)
 	}
 }
 
+void LinkedList::insert_at_begin(const int& newValue)
+{
+	Node* newElement = new Node{ newValue };
+	newElement->setNext(head);
+	head = newElement;
+}
+
 void LinkedList::print() const
 {
 	Node* it = head;
@@ -136,14 +149,8 @@ void LinkedList::print() const
 	std::cout << '\n';
 }
 
-void LinkedList::insert_at_begin(const int& newValue)
-{
-	Node* newElement = new Node{ newValue };
-	newElement->setNext(head);
-	head = newElement;
-}
 
-bool LinkedList::isHere(const int& element)
+bool LinkedList::isHere(const int& element) const
 {
 	Node* it = head;
 	while (it != NULL)
