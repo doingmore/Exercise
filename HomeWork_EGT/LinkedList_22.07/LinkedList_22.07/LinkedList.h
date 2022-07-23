@@ -12,7 +12,7 @@
 // In other case I'll need for index and I'll work with member m_size.... Or all elements must be unique
 // 
 // * Get first or last element  - complexity constant(1) in all cases
-// * Add element at begin or end - complexity constant(1) in all cases
+// * Add element at begin or end - complexity constant(1) in all cases (but use heap)
 // * Find element - complexity (N)
 // * Add element after other - complexity (N) 
 
