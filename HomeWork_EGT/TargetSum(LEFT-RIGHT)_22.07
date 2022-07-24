@@ -1,15 +1,14 @@
 #include <iostream>
-#include <set>
 
 std::pair<int, int> getNumbers(int* data, const int& targetSum, const int& size) // a+b=c   c-targetSum
 {
     std::pair<int, int> answer;
 
     int* begin = data;
-    int* end = data +(size-1);
+    int* end = data + (size - 1);
 
     int result;
-    while(true)
+    while (begin != end)
     {
         result = (*begin) + (*end);
         if (result == targetSum)
@@ -18,36 +17,21 @@ std::pair<int, int> getNumbers(int* data, const int& targetSum, const int& size)
             answer.second = *end;
             break;
         }
-        else if(result > targetSum)
-        {
-            if (end != &data[0])
-            {
-                end--;
-            }
-            else
-            {
-                break;
-            }
-        }
-        else
-        {
-            if (begin != &data[size-1])
-            {
-                begin++;
-            }
-            else
-            {
-                break;
-            }
-        }
+		else if (result > targetSum)
+		{
+			end--;
+		}
+		else
+		{
+			begin++;
+		}
     }
-    
     return answer;
 }
 
 int main()
 {
-    int data[]{-4,-1,1,3,5,6,8,11};
+    int data[]{ -4,-1,1,3,5,6,8,11 };
     constexpr int size{ static_cast<int>(std::size(data)) };
     int targetSum{ 10 };
 
