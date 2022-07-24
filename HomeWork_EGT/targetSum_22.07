@@ -1,31 +1,31 @@
 #include <iostream>
-#include <set>
+#include <unordered_map>
 
-std::pair<int, int> getNumbers(int* data, const int& targetSum,const int& size ) // a+b=c   c-targetSum
+std::pair<int, int> getNumbers(int* data, const int& targetSum, const int& size) // a+b=c   c-targetSum
 {
     std::pair<int, int> answer;
-    std::set<int> myRegister;
-    
-	for (int i = 0; i < size; i++)
-	{
-		int result{ targetSum - data[i] };
-		if (!myRegister.count(result))
-		{
-            myRegister.insert(data[i]);
-		}
+    std::unordered_map<int,char> myRegister;
+
+    for (int i = 0; i < size; i++)
+    {
+        int result{ targetSum - data[i] };
+        if (!myRegister.count(result))
+        {
+            myRegister.emplace(data[i],' ');
+        }
         else
         {
             answer.first = result;
             answer.second = data[i];
             break;
         }
-	}
+    }
     return answer;
 }
 
 int main()
 {
-    int data[]{3,5,-4,8,11,1,-1,6};
+    int data[]{ 3,5,-4,8,11,1,-1,6 };
     constexpr int size{ static_cast<int>(std::size(data)) };
     int targetSum{ 10 };
 
