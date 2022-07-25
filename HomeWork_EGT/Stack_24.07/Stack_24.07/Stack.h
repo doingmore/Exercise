@@ -5,15 +5,14 @@
 #define default_start_capacity 50
 
 /*
-	The class template acts as a wrapper to the underlying container - only a specific set of functions is provided.
-	The stack pushes and pops the element from top of the stack.
+	Simple action. Adapter, good for class helper.
+	
+	*   advantages:
+	-   Fast action push and pop elements - no memory and time constant(1)
+	-   Swap two stack objects - no memory and time constant(1) 
 
-	*   Goals:
-	*   Fast push and pop elements - no memory and time constant(1)
-	*   Swap two stack - no memory and time constant(1) 
-
-
-
+	*   disadvantages:
+	-   Fixed size
 */
 
 
@@ -31,7 +30,7 @@ public:
 	int& top();
 	
 	// Capacity 
-	size_t size()const { return m_size; }
+	size_t size()const { return static_cast<size_t>(m_size); }
 	bool empty() const { return (m_size == 0); }
 	// Modifiers 
 	void push(const int& element);
