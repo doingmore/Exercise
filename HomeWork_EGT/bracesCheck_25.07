@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string> // for getline
+#include <stack>
+
+bool bracesCheck(const std::string& data)
+{
+    std::stack<char> myRegister;
+
+    for (size_t i = 0; i < data.size(); i++)
+    {
+        if (myRegister.empty())
+        {
+            myRegister.push(data[i]);
+        }
+        else if( ('(' == myRegister.top() && data[i] == ')') || ('[' == myRegister.top() && data[i] == ']') || ('{' == myRegister.top() && data[i] == '}'))
+        {//                        case close
+            myRegister.pop();
+        }
+        else
+        {
+            myRegister.push(data[i]);
+        }
+    }
+
+    return myRegister.empty();
+}
+
+
+// ([])(){}((())()()
+// ([])(){}(())()()
+int main()
+{
+    std::string input;
+    std::getline(std::cin, input);
+
+
+    if (bracesCheck(input))
+    {
+        std::cout << "Correct" << '\n';
+    }
+    else
+    {
+        std::cout << "Incorrect" << '\n';
+    }
+
+    return 0;
+}
