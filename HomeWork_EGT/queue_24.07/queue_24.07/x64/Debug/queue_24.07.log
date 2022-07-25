@@ -1,0 +1,4 @@
+﻿  queue_24.07.cpp
+C:\Users\Mr.Robot\source\repos\queue_24.07\queue_24.07\queue_24.07.cpp(13,17): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\Mr.Robot\source\repos\queue_24.07\queue_24.07\queue_24.07.cpp(21,19): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
+  queue_24.07.vcxproj -> C:\Users\Mr.Robot\source\repos\queue_24.07\x64\Debug\queue_24.07.exe
