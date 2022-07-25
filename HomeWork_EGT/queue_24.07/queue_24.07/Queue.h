@@ -1,11 +1,13 @@
 #ifndef QUEUE_H
 #define QUEUE_H
-#include <iostream>
-
 /*
 	The queue pushes the elements on the back of the underlying container and pops them from the front. 
-*/
+	Simple action good for class helper. 
 
+	benefits:  
+	* direct access to begin and end elements - const (1)
+	* push elements without copy all content - time const (1) but with call OS for heap memory
+*/
 
 class Queue
 {
@@ -29,8 +31,7 @@ public:
 	// Modifiers 
 	void push(const int& value);
 	void pop(); // Removes an element from the front of the queue.
-	void swap(Queue& other);
-
+	void swap(Queue& other); 
 private:
 	void erase()
 	{
@@ -70,6 +71,5 @@ private:
 	Element* m_end;
 	unsigned int m_size;
 };
-
 
 #endif // !QUEUE_H
