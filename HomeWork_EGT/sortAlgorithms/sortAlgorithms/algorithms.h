@@ -38,7 +38,7 @@ void selectionAlg(int* data, const int& size)
 {
 	for (int i = 0; i < size; i++)
 	{
-		print(data, size);
+		//print(data, size);
 		int min{ i }; 
 		for (int k = i+1; k < size; k++)
 		{
@@ -62,7 +62,7 @@ void bubbleSort(int* data, const int& size)
 			if (data[k] > data[k+1])
 			{
 				swap(data[k], data[k+1]);
-				print(data, size);
+				//print(data, size);
 				flagSwap = false;
 			}
 		}
