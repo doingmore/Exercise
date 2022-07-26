@@ -19,19 +19,17 @@ void swap(int& left, int& right)
 
 void insertionAlg(int* data, const int& size)
 {
-	for (int i = 1; i < size; i++)
+	for (int i = 1; i < size; i++) 
 	{
-		print(data, size); // just for me 
-
+		//print(data, size);
 		int key = data[i];
-		int internalCounter{ i - 1 };
+		int internalCounter = i - 1;
 
-		while (internalCounter >= 0 && key < data[internalCounter])
+		while (internalCounter >= 0 && key < data[internalCounter] )
 		{
-			data[i] = data[internalCounter];
+			data[internalCounter + 1] = data[internalCounter];
 			internalCounter--;
 		}
-
 		data[internalCounter + 1] = key;
 	}
 }
