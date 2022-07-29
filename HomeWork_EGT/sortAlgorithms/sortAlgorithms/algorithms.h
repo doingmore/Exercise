@@ -36,18 +36,21 @@ void insertionAlg(int* data, const int& size)
 
 void selectionAlg(int* data, const int& size)
 {
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < size-1; i++)
 	{
-		//print(data, size);
-		int min{ i }; 
+		int minIndex{ i };
 		for (int k = i+1; k < size; k++)
 		{
-			if (data[min] > data[k])
+			if (data[minIndex] > data[k])
 			{
-				min = k;
+				minIndex = k;
 			}
 		}
-		swap(data[i], data[min]);
+		if (minIndex != i)
+		{
+			swap(data[i], data[minIndex]);
+		}
+		print(data, size);
 	}
 }
 
