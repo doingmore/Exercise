@@ -2,6 +2,8 @@
 #define BST_H
 
 #include <string>
+#include <queue>
+#include <iostream>
 
 class BST
 {
@@ -16,45 +18,16 @@ public:
 	//
 	void insert(const int& key);
 
+	bool search(const int& element);
+
+
 private:
+	void createNewNode(Node* node, const int& key);
+	void erase(Node* node);
 
-	void createNewNode( Node* node , const int& key)
-	{
-		// if we already have that key 
-		if (node->getKey() == key ) // do nothing , terminate insertion operation
-		{
-			return;
-		}
-
-		if (node->getLeft() == NULL && node->getRight() == NULL)
-		{
-			Node* temp = new Node{ key };
-			node->setLeft(temp);
-		}
-		else
-		{
-			if (node->getLeft() == NULL) // that node have only right child
-			{
-
-			}
-			else if (node->getRight() == NULL) // that node have only left child
-			{
-
-			}
-			else // that node have two children
-			{
-				if (key > node->getKey())
-				{
-					createNewNode(node->getRight(), key);
-				}
-				else
-				{
-					createNewNode(node->getLeft(), key);
-				}
-			}
-		}
-
-	}
+	bool binary_search(Node* node, const int& element);
+	bool DFS_search(Node* node, const int& element);
+	bool BFS_search(Node* node, const int& element,std::queue<Node*>& q);
 
 	class Node
 	{
