@@ -52,7 +52,7 @@ void BST::insert(const int& key)
 	if (root == NULL)
 	{
 		root = new Node{ key };
-		return; // if else or just interrupt function here
+		return; 
 	}
 	createNewNode(root, key);
 }
