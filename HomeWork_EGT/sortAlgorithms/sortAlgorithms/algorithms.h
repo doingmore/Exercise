@@ -76,5 +76,58 @@ void bubbleSort(int* data, const int& size)
 	}
 }
 
+void merge(int data[], int low, int high, int mid)
+{
+    int i, j, k, c[50];
+    i = low;
+    k = low;
+    j = mid + 1;
+    while (i <= mid && j <= high)
+    {
+        if (data[i] < data[j])
+        {
+            c[k] = data[i];
+            k++;
+            i++;
+        }
+        else
+        {
+            c[k] = data[j];
+            k++;
+            j++;
+        }
+    }
+    while (i <= mid)
+    {
+        c[k] = data[i];
+        k++;
+        i++;
+    }
+    while (j <= high)
+    {
+        c[k] = data[j];
+        k++;
+        j++;
+    }
+    for (i = low; i < k; i++)
+    {
+        data[i] = c[i];
+    }
+}
+
+
+void mergeSort(int* data,const int& begin, const int& end)
+{
+    if (begin < end)
+    {
+        int mid{ (begin + end) / 2 };
+
+
+        mergeSort(data, begin, mid);
+        mergeSort(data, mid + 1, end);
+
+        merge(data,begin,end,mid);
+    }
+}
 
 #endif // !ALGORITHMS_H
