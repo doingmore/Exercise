@@ -1,0 +1,69 @@
+#include <iostream>
+
+class PoweredDevice
+{
+public:
+    PoweredDevice(int power)
+    {
+        std::cout << "PoweredDevice: " << power << '\n';
+    }
+
+    void doSomething_fromPD()
+    {
+        std::cout << "Vuuuuu" << '\n';
+    }
+
+};
+
+class Scanner : public PoweredDevice // no virtual
+{
+public:
+    Scanner(int scanner, int power)
+        : PoweredDevice{ power }
+    {
+        std::cout << "Scanner: " << scanner << '\n';
+    }
+
+    void doSomething_fromS()
+    {
+        std::cout << "Brrrrddd" << '\n';
+    }
+
+};
+
+class Printer : public PoweredDevice // no virtual
+{
+public:
+    Printer(int printer, int power)
+        : PoweredDevice{ power }
+    {
+        std::cout << "Printer: " << printer << '\n';
+    }
+
+    void doSomething_fromP()
+    {
+        std::cout << "Shtrrrkrop" << '\n';
+    }
+};
+
+class Copier : public Scanner, public Printer
+{
+public:
+    Copier(int scanner, int printer, int power)
+        : //PoweredDevice{power}
+         Scanner{ scanner, power }
+        , Printer{ printer, power }
+    {
+        std::cout << "Copier: " << printer << '\n';
+    }
+};
+
+
+int main()
+{
+    Copier c{1,2,3};
+    //c.doSomething_fromPD();
+    c.doSomething_fromP();
+
+    return 0;
+}
