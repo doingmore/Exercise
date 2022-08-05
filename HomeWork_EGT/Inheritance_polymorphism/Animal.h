@@ -1,6 +1,9 @@
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
+// It is possible to make the assignment operator virtual. However, unlike the destructor case where virtualization
+// is always a good idea, virtualizing the assignment operator 
+// really opens up a bag full of worms and gets into some advanced topics
 
 class Animal
 {
