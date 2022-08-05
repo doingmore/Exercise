@@ -1,9 +1,6 @@
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
-// It is possible to make the assignment operator virtual. However, unlike the destructor case where virtualization
-// is always a good idea, virtualizing the assignment operator 
-// really opens up a bag full of worms and gets into some advanced topics
 
 class Animal
 {
@@ -12,6 +9,10 @@ public:
     virtual std::string speak() const = 0;
     virtual int getSpecificDataForType() const = 0;
     virtual int numberOfLegs() const = 0;
+    virtual ~Animal() //  absolutely need virtual
+    {
+        std::cout << "Animal destructor has been executed" << '\n';
+    }
 protected:
     std::string m_name;
 
@@ -22,12 +23,6 @@ protected:
     Animal(const std::string& name)
         : m_name{ name }
     {
-    }
-    
-public:
-    virtual ~Animal() //  absolutely need virtual
-    {
-        std::cout << "Animal destructor has been executed" << '\n';
     }
 };
 
@@ -62,7 +57,7 @@ public:
 
         return *this;
     }
-    ~Cat() // no need virtual ????
+    ~Cat() // no need virtual that is a final derived class ????
     { // first this destructor 
         std::cout << "Cat destructor has been executed" << '\n';
     }
@@ -70,6 +65,7 @@ public:
     std::string speak() const override { return m_rev; }
     int numberOfLegs() const override { return m_legs; }
     int getSpecificDataForType() const override { return m_mouse_murders; }
+    void somethingNormalFunc() {}
 private:
     std::string m_rev; // all cat have same rev
     int m_legs; // all cat have 4 legs
@@ -120,6 +116,7 @@ public:
     std::string speak() const override { return m_rev; }
     int numberOfLegs() const override { return m_legs; }
     int getSpecificDataForType() const override { return m_cat_murders; }
+    void somethingNormalFunc() {}
 private:
     std::string m_rev;
     int m_legs;
@@ -161,8 +158,9 @@ public:
     bool getLivingPlace() const { return m_livingAtHouse; }
 
     // no need obligatory implement pure virtual function from base class 
-    // ????
-
+    // that class will use Dog override functions 
+    // ask about ????
+    // void somethingNormalFunc() {}
 private:
     bool m_livingAtHouse;
 };
@@ -176,6 +174,8 @@ void report(Animal& animal) // no constant ref because of dynamic_cast.
         << " legs and don't like neighbor pet from other kind "
         << animal.getSpecificDataForType() << '\n';
 
+    // animal.somethingNormalFunc()  can't do that because normal functions are not at virtual table !!!
+
     { // this action is specific for Pinscher
         Animal* ptrA = &animal;
         Pinscher*  ptrP = dynamic_cast<Pinscher*>(ptrA); // return NULL if cast not successful
@@ -185,6 +185,8 @@ void report(Animal& animal) // no constant ref because of dynamic_cast.
             {
                 std::cout << "Living at house" << '\n';
             }
+
+            ptrP->somethingNormalFunc(); // I can do that.... call functions from parent class (public,protected) 
         }
     }
 }
