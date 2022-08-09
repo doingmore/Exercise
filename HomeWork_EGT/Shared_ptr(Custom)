@@ -1,0 +1,128 @@
+#ifndef SHARED_H
+#define SHARED_H
+
+
+class Counter
+{
+    private:
+    template <typename T> friend class Shared;
+    // Constructor
+    Counter()
+        : m_count(0) 
+    {};
+    //
+    Counter(const Counter&) = delete;
+    Counter& operator=(const Counter&) = delete;
+    ~Counter() {}
+    //
+
+    unsigned int get() const { return m_count;}
+
+    void operator++ ()    {m_count++;}
+    void operator++ (int) { ++(*this) ; }
+
+    void operator--() { m_count--; }
+    void operator--(int) { --(*this); }
+
+    unsigned int m_count{};
+};
+
+
+
+template <typename T>
+class Shared
+{
+public:
+    Shared()
+        : m_data{NULL}
+        , m_counter{NULL}
+    {}
+
+    Shared( T* object)
+    {
+        if (object== NULL)
+        {
+            m_data = NULL;
+            m_counter= NULL;
+        }
+        else
+        {
+            m_data = object;
+            m_counter = new Counter{};
+            (*m_counter)++;
+        }
+    }
+
+    //
+    Shared(const Shared<T>& other)
+        : m_data{other.m_data}
+    {
+        m_counter = other.m_counter;
+        if (m_data)
+        {
+            (*m_counter)++;
+        }
+    }
+    
+    Shared& operator= ( Shared<T>& other) // think about case when other is NULL
+    {
+        if (this == &other)
+        {
+            return *this;
+        }
+
+        if (m_data)
+        {
+            this->erase();
+        }
+
+        m_data = other.m_data;
+        m_counter = other.m_counter;
+        if (m_data)
+        {
+            (*m_counter)++;
+        }// else that is NULL
+
+        return *this;
+    }
+
+    ~Shared()
+    {
+        this->erase();
+    }
+    //
+
+
+    unsigned int use_count() const {return m_counter->get();}
+
+    
+    T* get(){ return m_data;}
+    T& operator* () {return *m_data;}
+    T* operator->(){ return m_data;}
+
+
+private:
+    void erase()
+    {
+        if (m_counter->get() > 1)
+        {
+            (*m_counter)--;
+        }
+        else
+        {
+            delete m_counter;
+            delete m_data;
+            m_counter = NULL;
+            m_data = NULL;
+        }
+    }
+
+    Counter* m_counter;
+
+    T* m_data;
+};
+
+
+
+
+#endif // !SHARED_H
