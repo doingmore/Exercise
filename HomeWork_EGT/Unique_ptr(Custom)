@@ -1,0 +1,107 @@
+#ifndef UNIQUE_H
+#define UNIQUE_H
+
+#include <string>
+
+template<typename T>
+class Unique
+{
+public:
+	Unique() 
+		: m_data{NULL}
+	{}
+
+	Unique(T* object)
+		: m_data( object )
+	{
+	}
+	//
+	Unique(const Unique& other) = delete;
+
+	~Unique() { if (m_data) { delete m_data; } }
+
+	Unique& operator= (const Unique& other) = delete;
+	//
+	//
+	Unique( Unique&& other) noexcept
+		: m_data{ other.m_data }
+	{
+		other.m_data = NULL;
+	}
+
+	Unique& operator= ( Unique&& other) noexcept
+	{
+		if (this == &other)
+		{
+			return *this;
+		}
+
+		if (m_data)
+		{
+			delete m_data;
+		}
+
+		m_data = other.m_data;
+		other.m_data = NULL;
+
+		return *this;
+	}
+	//
+
+
+
+	T& operator* () { return *m_data; }
+	T* operator-> () { return m_data; }
+
+
+	T* get() const 
+	{
+		return m_data;
+	}
+
+	T* release() 
+	{
+		T* answer{ m_data }; 
+		m_data = NULL;
+		return answer;
+	}
+	/*
+		Destroys the object currently managed by the unique_ptr (if any) and takes ownership of p.
+
+		If p is a null pointer (such as a default-initialized pointer), the unique_ptr becomes empty, managing no object after the call.
+
+		To release the ownership of the stored pointer without destroying it, use member function release instead.
+	*/
+	void reset(T* ptr_to_t_object)
+	{
+		if (ptr_to_t_object == NULL)
+		{
+			delete m_data;
+			m_data = NULL;
+			return;
+		}
+		else
+		{
+			if (m_data != NULL)
+			{
+				delete m_data;
+			}
+			m_data = ptr_to_t_object;
+			ptr_to_t_object = NULL;
+		}
+	}
+
+	void swap(Unique<T>& other)
+	{
+		Unique<T> temp{ std::move(other) };
+		other = std::move(*this);
+		*this = std::move(temp);
+	}
+
+private:
+	T* m_data;
+};
+
+#endif // !UNIQUE_H
+
+
