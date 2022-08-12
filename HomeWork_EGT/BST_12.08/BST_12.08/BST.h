@@ -11,61 +11,22 @@ public:
 	BST(const int& value);
 
 	//
-	BST(const BST& other) {}
-	BST& operator= (const BST& other) {}
-	~BST() {}
+	BST(const BST& other) = delete;
+	BST& operator= (const BST& other) = delete;
+	~BST();
 	//
 	//
-	BST(BST&& other) {}
-	BST& operator= (BST&& other) {}
+	BST(BST&& other);
+	BST& operator= (BST&& other);
 	//
 
-	void insert(const int& newVelue)
-	{
-		if (m_root==NULL)
-		{
-			m_root = new Node{ newVelue };
-		}
-		else
-		{
-			insertNewNode(m_root, newVelue);
-		}
-	}
+	void insert(const int& newVelue);
 
 
 private:
-	void insertNewNode(Node* node,const int& newVelue)
-	{
-		if (node == NULL) // for stop and go back
-		{
-			return;
-		}
-		else if (node->getValue() == newVelue) // if already have that value terminate insertion
-		{
-			return;
-		}
+	void insertNewNode(Node* node, const int& newVelue);
+	void deallocateALL(Node* node);
 
-		if (node->getValue() < newVelue)
-		{
-			insertNewNode(node->getRight(), newVelue);
-			if (node->getRight() == NULL )
-			{
-				Node* newNode = new Node{ newVelue };
-				node->setRight(newNode);
-			}
-			// else go back
-		}
-		else
-		{
-			insertNewNode(node->getLeft(), newVelue);
-			if (node->getLeft() == NULL)
-			{
-				Node* newNode = new Node{ newVelue };
-				node->setLeft(newNode);
-			}
-			// else go back
-		}
-	}
 
 	class Node
 	{
@@ -83,7 +44,7 @@ private:
 		Node* getLeft() const { return m_left; }
 
 		void setRight(Node* newRight) { m_right = newRight; }
-		Node* getRight() const { return m_right;}
+		Node* getRight() const { return m_right; }
 
 	private:
 		int m_value;
@@ -96,4 +57,4 @@ private:
 };
 
 
-#endif //!BST_H
+#endif //!BST_H6666
