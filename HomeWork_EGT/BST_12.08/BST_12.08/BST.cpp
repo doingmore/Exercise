@@ -61,6 +61,7 @@ void BST::insert(const int& newVelue)
 	}
 }
 
+
 void BST::insertNewNode(Node* node, const int& newVelue)
 {
 	if (node == NULL) // for stop and go back
@@ -104,4 +105,183 @@ void BST::deallocateALL(Node* node) // post travel
 	deallocateALL(node->getLeft());
 	deallocateALL(node->getRight());
 	delete node;
+}
+
+int BST::find(const int& number) const
+{
+	Node* returnresult = binarySearch(m_root,number);
+	if (returnresult == NULL)
+	{
+		return -1;
+	}
+	return returnresult->getValue();
+}
+
+BST::Node* BST::binarySearch(Node* node, const int& key) const
+{
+	if (node == NULL)
+	{
+		return NULL;
+	}
+
+	if (node->getValue() == key)
+	{
+		return node;
+	}
+	else if (node->getValue() < key)
+	{
+		return binarySearch(node->getRight(),key);
+	}
+	else
+	{
+		return binarySearch(node->getLeft(), key);
+	}
+
+}
+
+std::ostream& operator<< (std::ostream& stream,const BST& tree)
+{
+	// BreadthFirstSearch
+	std::queue<BST::Node*> que;
+	if (tree.m_root == NULL)
+	{
+		return stream;
+	}
+
+	que.push(tree.m_root);
+
+	while (!que.empty())
+	{
+		stream << que.front()->getValue() << ' ';
+
+		if (que.front()->getLeft() != NULL)
+		{
+			que.push(que.front()->getLeft());
+		}
+		if (que.front()->getRight() != NULL)
+		{
+			que.push(que.front()->getRight());
+		}
+		que.pop();
+	}
+
+	return stream;
+}
+
+bool BST::Node::haveNoChild()
+{
+	if ( this->getLeft() == NULL && this->getRight() == NULL )
+	{
+		return true;
+	}
+	return false;
+}
+bool BST::Node::haveOneChild()
+{
+	if (   (this->getLeft() != NULL && this->getRight() == NULL)
+		|| (this->getLeft() == NULL && this->getRight() != NULL) )
+	{
+		return true;
+	}
+	return false;
+}
+
+BST::Node* BST::getParent(Node* node , Node* child)
+{
+	if (node == NULL) // for return back
+	{
+		return NULL;
+	}
+
+	if (node->getLeft() == child)
+	{
+		return node;
+	}
+	if (node->getRight() == child)
+	{
+		return node;
+	}
+
+	if (node->getValue() > child->getValue())
+	{
+		return getParent(node->getLeft(), child);
+	}
+	else
+	{
+		return getParent(node->getRight(), child);
+	}
+	return NULL;
+}
+
+void BST::remove(const int& deleteValue)
+{
+	Node* nodeForDelete = binarySearch(m_root, deleteValue);
+
+	if ( nodeForDelete->haveNoChild() ) // first case delete leaf
+	{
+		if (m_root == nodeForDelete) // case when delete m_root with no children
+		{
+			delete m_root;
+			m_root = NULL;
+		}
+		else
+		{
+			Node* parent = getParent(m_root,nodeForDelete);
+			if (parent->getLeft() == nodeForDelete)
+			{
+				parent->setLeft(NULL);
+			}
+			else
+			{
+				parent->setRight(NULL);
+			}
+		}
+	}
+	else if (nodeForDelete->haveOneChild()) // second case delete node with one child
+	{
+		if (m_root == nodeForDelete) // case when delete m_root with one child
+		{
+			if (nodeForDelete->getLeft() == NULL)
+			{
+				m_root = nodeForDelete->getRight();
+			}
+			else
+			{
+				m_root = nodeForDelete->getLeft();
+			}
+		}
+		else
+		{
+			Node* parent = getParent(m_root, nodeForDelete);
+
+			if (parent->getLeft() == nodeForDelete) // nodeForDelete is left child
+			{
+				if (nodeForDelete->getLeft() == NULL) // have right child
+				{
+					parent->setLeft(nodeForDelete->getRight());
+				}
+				else // have left child
+				{
+					parent->setLeft(nodeForDelete->getLeft());
+				}
+			}
+			else // nodeForDelete is right child
+			{
+				if (nodeForDelete->getLeft() == NULL) // have right child
+				{
+					parent->setRight(nodeForDelete->getRight());
+				}
+				else // have left child
+				{
+					parent->setRight(nodeForDelete->getLeft());
+				}
+			}
+		}
+	}
+	else // third case delete node with two children
+	{
+
+	}
+
+	delete nodeForDelete;
 }
