@@ -1,7 +1,8 @@
 #ifndef BST_H
 #define BST_H
-
+#include <queue>
 #include <cstddef>
+#include <iostream>
 
 class BST final
 {
@@ -21,12 +22,15 @@ public:
 	//
 
 	void insert(const int& newVelue);
-
+	int find(const int& number) const;
+	friend std::ostream& operator<< (std::ostream& stream,const BST& tree);
+	void remove(const int& deleteValue);
 
 private:
+	Node* getParent(Node* node, Node* child);
 	void insertNewNode(Node* node, const int& newVelue);
 	void deallocateALL(Node* node);
-
+	Node* binarySearch(Node* node , const int& key) const;
 
 	class Node
 	{
@@ -45,6 +49,9 @@ private:
 
 		void setRight(Node* newRight) { m_right = newRight; }
 		Node* getRight() const { return m_right; }
+
+		bool haveNoChild();
+		bool haveOneChild();
 
 	private:
 		int m_value;
