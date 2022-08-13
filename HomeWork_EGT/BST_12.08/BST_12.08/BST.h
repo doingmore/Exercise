@@ -27,6 +27,7 @@ public:
 	void remove(const int& deleteValue);
 
 private:
+	int getMin(Node* node) const;
 	Node* getParent(Node* node, Node* child);
 	void insertNewNode(Node* node, const int& newVelue);
 	void deallocateALL(Node* node);
