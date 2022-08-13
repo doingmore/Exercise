@@ -280,8 +280,39 @@ void BST::remove(const int& deleteValue)
 	}
 	else // third case delete node with two children
 	{
+		if (m_root == nodeForDelete)
+		{
+			int minValueRightSubT{getMin(m_root->getRight())};
+			this->remove(minValueRightSubT); // can be only first case or second case !! 
+			m_root->setValue(minValueRightSubT);
+			nodeForDelete = NULL;
+		}
+		else
+		{
+			int minValueRightSubT{ getMin(nodeForDelete->getRight()) };
 
+			this->remove(minValueRightSubT); // can be only first case or second case !! 
+
+			nodeForDelete->setValue(minValueRightSubT);
+
+			nodeForDelete = NULL;
+		}
+	}
+	if (nodeForDelete != NULL) { delete nodeForDelete; }
+}
+int BST::getMin(Node* node) const
+{
+	if (node == NULL)
+	{
+		return -1 ;
 	}
 
-	delete nodeForDelete;
+	if (node->getLeft() != NULL)
+	{
+		return getMin(node->getLeft());
+	}
+	else
+	{
+		return node->getValue();
+	}
 }
