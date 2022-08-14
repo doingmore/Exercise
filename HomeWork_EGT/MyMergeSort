@@ -1,0 +1,97 @@
+#include <iostream>
+using namespace std;
+
+// Merges two subarrays of array[].
+// First subarray is arr[begin..mid]
+// Second subarray is arr[mid+1..end]
+void merge(int* data,const int& left, const int& mid, const int& right)
+{
+	// We have low to mid and mid+1 to high already sorted.
+
+	int* temp= new int[right - left + 1];
+	int i{ left };
+	int k{ 0 };
+	int j{ mid + 1 };
+
+	// Merge the two parts into temp[].
+	while (i <= mid && j <= right)
+	{
+		if (data[i] < data[j])
+		{
+			temp[k] = data[i];
+			k++;
+			i++;
+		}
+		else
+		{
+			temp[k] = data[j];
+			k++;
+			j++;
+		}
+	}
+
+	// Insert all the remaining values from i to mid into temp[].
+	while (i <= mid)
+	{
+		temp[k] = data[i];
+		k++;
+		i++;
+	}
+
+	// Insert all the remaining values from j to high into temp[].
+	while (j <= right)
+	{
+		temp[k] = data[j];
+		k++;
+		j++;
+	}
+
+
+	// Assign sorted data stored in temp[] to a[].
+	for (i = left; i <= right; i++)
+	{
+		data[i] = temp[i - left];
+	}
+
+	delete[] temp;
+}
+
+// begin is for left index and end is
+// right index of the sub-array
+// of arr to be sorted */
+void mergeSort(int* data, int begin, int end)
+{
+    if (begin >= end)
+    {
+        return; // Returns recursively
+    }
+
+    int mid = ((end - begin) / 2) + begin;
+    mergeSort(data, begin, mid);
+    mergeSort(data, mid + 1, end);
+    merge(data, begin, mid, end);
+}
+
+// UTILITY FUNCTIONS
+// Function to print an array
+void printArray(int A[], int size)
+{
+    for (auto i = 0; i < size; i++)
+        cout << A[i] << " ";
+}
+
+// Driver code
+int main()
+{
+    int data[] = { 12, 11, 13, 5, 6, 7 };
+    auto arr_size = sizeof(data) / sizeof(data[0]);
+
+    cout << "Given array is \n";
+    printArray(data, arr_size);
+
+    mergeSort(data, 0, arr_size - 1);
+
+    cout << "\nSorted array is \n";
+    printArray(data, arr_size);
+    return 0;
+}
