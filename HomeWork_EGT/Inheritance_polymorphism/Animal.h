@@ -16,9 +16,8 @@ public:
 protected:
     std::string m_name;
 
-    // We're making this constructor protected because
-    // we don't want people creating Animal objects directly,
-    // but we still want derived classes to be able to use it.
+    // making this constructor protected abstract paradigm
+    // but we still need derived classes can use it.
     // Animal() {}
     Animal(const std::string& name)
         : m_name{ name }
@@ -26,7 +25,7 @@ protected:
     }
 };
 
-class Cat final : public Animal // I don't want more derived class from cat, no need virtual destructor ??? 
+class Cat final : public Animal // I don't want more derived class from cat, no need virtual destructor 
 {
 public:
     Cat(const std::string& name)
