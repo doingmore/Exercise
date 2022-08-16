@@ -184,8 +184,6 @@ void report(Animal& animal) // no constant ref because of dynamic_cast.
             {
                 std::cout << "Living at house" << '\n';
             }
-
-            ptrP->somethingNormalFunc(); // I can do that.... call functions from parent class (public,protected) 
         }
     }
 }
