@@ -21,6 +21,7 @@ public:
 	// ===================== Element access =======================
 	char& at(const size_t& index); // with bounds checking 
 	char& operator[] (const size_t& index); // no bounds checking, if index > m_size udefined behavior
+	char& operator[] (const size_t& index) const;
 	char& front();
 	char& back();
 	char* data();
@@ -40,14 +41,11 @@ public:
 
 	// ===================== Operations ===========================
 	//
-	// ===================== Overloaded Operators =================
+	// ===================== Overloaded Operators For string class =================
 	friend std::ostream& operator<< (std::ostream& stream, const string& object);
 	friend std::istream& operator>> (std::istream& stream, const string& object);
 
-	void operator+= (string& object)
-	{
-		
-	}
+	string& operator+= (const string& object);
 
 	// ===================== Overloaded Operators =================
 	//
