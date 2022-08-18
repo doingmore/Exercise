@@ -148,6 +148,11 @@ char& string::operator[] (const size_t& index)
 	return m_data[index];
 }
 
+char& string::operator[] (const size_t& index) const // need for operator+= left operand const !
+{
+	return m_data[index];
+}
+
 char& string::front() // need for error handling when use that function on object with size 0
 {
 	if (m_size == firstIN)
@@ -260,7 +265,7 @@ void string::resize(const size_t& newSize)
 
 // ========================================== Operations =============================================================
 //
-// ========================================== Overloaded Operators ===================================================
+// ========================================== Overloaded Operators For string class ===================================================
 std::ostream& operator<< (std::ostream& stream, const string& object)
 {
 	for (size_t i = 0; i < object.m_size; i++)
@@ -276,7 +281,32 @@ std::istream& operator>> (std::istream& stream, const string& object)
 	return stream;
 }
 
+string& string::operator+= (const string& object)
+{
+	bool needPreallocate{ false };
+	while ((m_capacity - m_size) < object.size())
+	{
+		m_capacity *= incrementStep;
+		needPreallocate = true;
+	}
+	if (needPreallocate)
+	{
+		char* temp = m_data;
+		m_data = new char[m_capacity] {};
+		for (size_t i = 0; i < m_size; i++)
+		{
+			m_data[i] = temp[i];
+		}
+		delete[] temp;
+	}
 
+	for (size_t i = 0; i < object.size(); i++) // start from m_size!
+	{
+		m_data[m_size] = object[i];
+		m_size++;
+	}
+	return *this;
+}
 
 // ========================================== Overloaded Operators ===================================================
 //
