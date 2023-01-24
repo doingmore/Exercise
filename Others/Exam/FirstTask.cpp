@@ -1,11 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <map>
-#include <string>
-#include <iomanip>
-#include <utility>
-#include "Person.h"
-
 
 int main()
 {
