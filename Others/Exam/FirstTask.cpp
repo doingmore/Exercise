@@ -1,5 +1,9 @@
 #include <iostream>
 
+/*
+1 zadacha: Da se napishe programa koqto izvejda na ekrana vsichki deliteli na dadeno estestveno chislo.
+*/
+
 int main()
 {
 	unsigned int a{0};
