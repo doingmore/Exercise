@@ -1,0 +1,49 @@
+/*
+ 6 zadacha: Napishete funkciq koqto presmqta NOK za dve estestveni chisla
+*/
+
+int max(const int& a, const int& b)
+{
+    if(a>b)
+    {
+        return a;
+    }
+    else if(b>a)
+    {
+        return b;
+    }
+
+    return 0;
+}
+
+int Compute(const int& a, const int& b)
+{
+    int NOK{INT_MAX};
+
+    for (int i = max(a, b); i > 0; i--) 
+    {
+        if (a % i == 0 && b % i == 0) 
+        {
+            if(NOK > i)
+            {
+                NOK=i;
+            }
+        }
+    }
+
+    return NOK;
+}
+
+int main()
+{
+	int firstNumber{ 0 }, secondNumber{ 0 };
+	std::cin >> firstNumber >> secondNumber;
+
+    if(firstNumber < 1 || secondNumber < 1)
+    {
+        return 0; // terminate 
+    }
+
+	std::cout << Compute(firstNumber,secondNumber) << std::endl;
+	return 0;
+}
